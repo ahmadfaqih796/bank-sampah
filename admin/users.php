@@ -18,6 +18,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Telepon</th>
+                        <th>Role</th>
                         <th>Status</th>
                         <th>Aksi</th>
                      </tr>
@@ -34,6 +35,7 @@
                               <td><?= $item['name'] ?></td>
                               <td><?= $item['email'] ?></td>
                               <td><?= $item['phone'] ?></td>
+                              <td><?= $item['role'] ?></td>
                               <td><?= $item['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
                               <td>
                                  <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" onclick="getUserData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
