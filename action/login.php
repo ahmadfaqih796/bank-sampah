@@ -12,9 +12,15 @@ if (isset($_POST['loginBtn'])) {
       $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password' LIMIT 1";
       $result = mysqli_query($conn, $query);
       if ($result) {
-         print_r(mysqli_num_rows($result));
          if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $_SESSION['auth'] = true;
+            $_SESSION['auth_role'] = $row['role'];
+            $_SESSION['auth_user'] = [
+               'name' => $row['name'],
+               'email' => $row['email'],
+               'phone' => $row['phone'],
+            ];
             if ($row['role'] == "admin") {
                redirect('/admin/index.php', 'Login Berhasil');
             } else {
