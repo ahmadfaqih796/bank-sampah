@@ -11,7 +11,8 @@ require('includes/header.php'); ?>
                   <h4>Login</h4>
                </div>
                <div class="card-body shadow">
-                  <form action="" method="post">
+                  <?php alertMessage() ?>
+                  <form action="action/login.php" method="post">
                      <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" id="email" class="form-control">
