@@ -38,6 +38,6 @@
       </ul>
    </div>
    <div class="sidenav-footer mx-3 ">
-      <a class="btn bg-gradient-primary mt-3 w-100" href="logout.php">Logout</a>
+      <a class="btn bg-gradient-primary mt-3 w-100" href="../../action/logout.php">Logout</a>
    </div>
 </aside>
