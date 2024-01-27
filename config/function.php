@@ -31,6 +31,13 @@ function alertMessage()
    }
 }
 
+function logoutSession()
+{
+   unset($_SESSION['auth']);
+   unset($_SESSION['auth_role']);
+   unset($_SESSION['auth_user']);
+}
+
 function dateNow()
 {
    $old_date = date('l, F d y h:i:s');
