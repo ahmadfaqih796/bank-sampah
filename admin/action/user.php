@@ -6,19 +6,15 @@ if (isset($_POST['saveUser'])) {
    $email = validate($_POST['email']);
    $password = validate($_POST['password']);
    $role = validate($_POST['role']);
-   // $is_active = validate($_POST['is_active']) == true ? 1 : 0;
-
-   $old_date = date('l, F d y h:i:s');              // returns Saturday, January 30 10 02:06:34
-   $old_date_timestamp = strtotime($old_date);
-   $new_date = date('Y-m-d H:i:s', $old_date_timestamp);
+   $dateNow = dateNow();
 
    if ($name != ''  && $email != '' && $password != '') {
-      $query = "INSERT INTO users (name, phone, email, password, role, is_active, created_at) VALUES ('$name', '$phone', '$email', '$password', '$role', '1', '$new_date')";
+      $query = "INSERT INTO users (name, phone, email, password, role, is_active, created_at) VALUES ('$name', '$phone', '$email', '$password', '$role', '1', '$dateNow')";
       $result = mysqli_query($conn, $query);
       if ($result) {
-         redirect('/admin/users.php', 'Data Berhasil');
+         redirect('/admin/users.php', 'Berhasil Menyimpan Data');
       } else {
-         redirect('/admin/users.php', 'Data Tidak Beres');
+         redirect('/admin/users.php', 'Gagal Menyimpan Data');
       }
    } else {
       redirect('/admin/users.php', 'Data Tidak Lengkap');
