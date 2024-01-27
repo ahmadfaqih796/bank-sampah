@@ -1,4 +1,6 @@
-<?php require('includes/header.php'); ?>
+<?php
+$pageTitle = 'About';
+require('includes/header.php'); ?>
 
 <h1>About</h1>
 
