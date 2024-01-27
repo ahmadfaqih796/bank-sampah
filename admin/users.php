@@ -36,8 +36,8 @@
                               <td><?= $item['phone'] ?></td>
                               <td><?= $item['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
                               <td>
-                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" onclick="getUserID(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
-                                 <button class="btn btn-danger btn-sm">Hapus</button>
+                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" onclick="getUserData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
+                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteUser" onclick="getUserId(<?= $item['id'] ?>)">Hapus</button>
                               </td>
                            </tr>
                      <?php
@@ -55,5 +55,6 @@
 <!-- Modal -->
 <?php include('modal/user/create.php'); ?>
 <?php include('modal/user/edit.php'); ?>
+<?php include('modal/user/delete.php'); ?>
 
 <?php include('includes/footer.php'); ?>

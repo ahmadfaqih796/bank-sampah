@@ -39,3 +39,18 @@ if (isset($_POST['editUser'])) {
       redirect('/admin/users.php', 'Data Tidak Lengkap');
    }
 }
+
+if (isset($_POST['deleteUser'])) {
+   $id = validate($_POST['id']);
+   if ($id != '') {
+      $query = "DELETE FROM users WHERE id = '$id'";
+      $result = mysqli_query($conn, $query);
+      if ($result) {
+         redirect('/admin/users.php', 'Berhasil Menghapus Data');
+      } else {
+         redirect('/admin/users.php', 'Gagal Menghapus Data');
+      }
+   } else {
+      redirect('/admin/users.php', 'Id ini tidak ditemukan');
+   }
+}

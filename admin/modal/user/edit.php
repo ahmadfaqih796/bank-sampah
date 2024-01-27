@@ -32,7 +32,6 @@
                </div>
             </div>
             <div class="modal-footer">
-               <input type="hidden" name="userId" id="userId" value="">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
                <button type="submit" class="btn bg-gradient-primary" name="editUser">Update</button>
             </div>
@@ -43,7 +42,7 @@
 
 
 <script>
-   function getUserID(data) {
+   function getUserData(data) {
       document.getElementById('editId').value = data['id'];
       document.getElementById('editName').value = data['name'];
       document.getElementById('editEmail').value = data['email'];
