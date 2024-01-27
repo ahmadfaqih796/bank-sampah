@@ -1,6 +1,12 @@
 <?php
 $pageTitle = 'Login';
-require('includes/header.php'); ?>
+require('includes/header.php');
+
+if (isset($_SESSION['auth'])) {
+   redirect('/index.php', 'Anda Sudah Login');
+}
+
+?>
 
 <div class="py-5">
    <div class="container">
