@@ -1,5 +1,9 @@
-<?php require('../config/function.php') ?>
-<?php require('../config/query.php') ?>
+<?php
+require('../config/function.php');
+require('authentication.php');
+require('../config/query.php');
+authentication('admin');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
