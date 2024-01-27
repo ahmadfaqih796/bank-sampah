@@ -27,7 +27,7 @@ if (isset($_POST['loginBtn'])) {
                redirect('/index.php', 'Login Berhasil');
             }
          } else {
-            redirect("/login.php", "Email dan Password Tidak Sesuai");
+            redirect("/login.php", "Email dan Password Salah");
          }
       } else {
          redirect("/login.php", "Email dan Password Tidak Ditemukan");
