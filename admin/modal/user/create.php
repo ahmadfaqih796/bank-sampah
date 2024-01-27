@@ -1,7 +1,7 @@
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
-      <form action="" method="post">
-         <div class="modal-content">
+      <div class="modal-content">
+         <form action="action/user.php" method="post">
             <div class="modal-header">
                <h5 class="modal-title" id="addUserModalLabel">Tambah User</h5>
                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
@@ -36,9 +36,9 @@
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
-               <button type="submit" class="btn bg-gradient-primary">Simpan</button>
+               <button type="submit" class="btn bg-gradient-primary" name="saveUser">Simpan</button>
             </div>
-         </div>
-      </form>
+         </form>
+      </div>
    </div>
 </div>

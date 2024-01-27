@@ -9,6 +9,7 @@
             </h4>
          </div>
          <div class="card-body">
+            <?= alertMessage(200) ?>
             <div class="table-responsive">
                <table class="table align-items-center mb-0">
                   <thead>
