@@ -1,4 +1,5 @@
 <?php require('../config/function.php') ?>
+<?php require('../config/query.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
