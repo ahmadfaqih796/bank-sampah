@@ -37,3 +37,18 @@ if (isset($_POST['editProduk'])) {
       redirect('/admin/produk.php', 'Data Tidak Lengkap');
    }
 }
+
+if (isset($_POST['deleteProduk'])) {
+   $id = validate($_POST['id']);
+   if ($id != '') {
+      $query = "DELETE FROM product WHERE id = '$id'";
+      $result = mysqli_query($conn, $query);
+      if ($result) {
+         redirect('/admin/produk.php', 'Berhasil Menghapus Data');
+      } else {
+         redirect('/admin/produk.php', 'Gagal Menghapus Data');
+      }
+   } else {
+      redirect('/admin/produk.php', 'Id ini tidak ditemukan');
+   }
+}
