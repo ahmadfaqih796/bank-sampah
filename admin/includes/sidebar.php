@@ -9,7 +9,7 @@
    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
          <li class="nav-item">
-            <a class="nav-link  active" href="index.php">
+            <a class="nav-link <?= "active" ?>" href="index.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="fa fa-home text-white text-lg"></i>
                </div>
@@ -28,11 +28,11 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link  " href="../pages/tables.html">
+            <a class="nav-link  " href="nasabah.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="fa fa-home text-dark text-lg"></i>
                </div>
-               <span class="nav-link-text ms-1">Tes</span>
+               <span class="nav-link-text ms-1">Nasabah</span>
             </a>
          </li>
       </ul>

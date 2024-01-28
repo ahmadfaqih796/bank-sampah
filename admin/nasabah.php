@@ -6,7 +6,7 @@ include('includes/header.php'); ?>
    <div class="col-md-12">
       <div class="card">
          <div class="card-header">
-            <h4>User Lists
+            <h4>Nasabah Lists
                <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah User</button>
             </h4>
          </div>
@@ -27,13 +27,13 @@ include('includes/header.php'); ?>
                   </thead>
                   <tbody>
                      <?php
-                     $users = getAll('users');
-                     if (mysqli_num_rows($users) > 0) {
-                        foreach ($users as $item) {
+                     $nasabah = getNasabahAll();
+                     if (mysqli_num_rows($nasabah) > 0) {
+                        foreach ($nasabah as $item) {
                      ?>
                            <tr>
                               <td><?= $item['id'] ?></td>
-                              <td><?= $item['name'] ?></td>
+                              <td><?= $item['fullname'] ?></td>
                               <td><?= $item['email'] ?></td>
                               <td><?= $item['phone'] ?></td>
                               <td><?= $item['role'] ?></td>
