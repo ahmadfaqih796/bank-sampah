@@ -44,7 +44,7 @@ function getById($tableName, $id)
 function getNasabahAll()
 {
    global $conn;
-   $query = "SELECT n.id, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user'";
+   $query = "SELECT n.id, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user'";
    $result = mysqli_query($conn, $query);
    return $result;
 }
