@@ -12,7 +12,7 @@ include('includes/header.php'); ?>
                </div>
                <div class="col-md-3">
                   <button class="btn btn-success" onclick="printTable()">Cetak</button>
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Produk</button>
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addProduk">Tambah Produk</button>
                </div>
             </div>
          </div>
@@ -23,40 +23,26 @@ include('includes/header.php'); ?>
                   <thead>
                      <tr>
                         <th>Id</th>
-                        <th>Name</th>
-                        <th>No Rekening</th>
-                        <th>RT</th>
-                        <th>RW</th>
-                        <th>Alamat</th>
-                        <th>Jml Warga</th>
-                        <th>Status</th>
-                        <th>Tanggal Dibuat</th>
+                        <th>Nama</th>
+                        <th>Harga Jual</th>
+                        <th>Harga Beli</th>
                         <th class="print_view">Aksi</th>
                      </tr>
                   </thead>
                   <tbody>
                      <?php
-                     if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-                        $nasabah = getFilterNasabah($_GET['tanggal']);
-                     } else {
-                        $nasabah = getNasabahAll();
-                     }
-                     if (mysqli_num_rows($nasabah) > 0) {
-                        foreach ($nasabah as $item) {
+                     $product = getAll('product');
+                     if (mysqli_num_rows($product) > 0) {
+                        foreach ($product as $item) {
                      ?>
                            <tr>
                               <td><?= $item['id'] ?></td>
-                              <td><?= $item['fullname'] ?></td>
-                              <td><?= $item['no_rekening'] ?></td>
-                              <td><?= $item['rt'] ?></td>
-                              <td><?= $item['rw'] ?></td>
-                              <td><?= $item['alamat'] ?></td>
-                              <td><?= $item['jml_warga'] ?></td>
-                              <td><?= $item['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
-                              <td><?= $item['created_at'] ?></td>
-                              <td class="print_view">
-                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
-                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
+                              <td><?= $item['name'] ?></td>
+                              <td><?= $item['h_jual'] ?></td>
+                              <td><?= $item['h_beli'] ?></td>
+                              <td>
+                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" onclick="getUserData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
+                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteUser" onclick="getUserId(<?= $item['id'] ?>)">Hapus</button>
                               </td>
                            </tr>
                      <?php
