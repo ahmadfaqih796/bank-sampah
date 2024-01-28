@@ -22,7 +22,9 @@ if (isset($_POST['loginBtn'])) {
                'phone' => $row['phone'],
             ];
             if ($row['role'] == "admin") {
-               redirect('/admin/index.php', 'Login Berhasil');
+               redirect('/admin/index.php', 'Login Berhasil sebagai admin');
+            } elseif ($row['role'] == "user") {
+               redirect('/user/index.php', 'Login Berhasil sebagai user');
             } else {
                redirect('/index.php', 'Login Berhasil');
             }

@@ -2,7 +2,7 @@
 require('../config/function.php');
 require('authentication.php');
 require('../config/query.php');
-authentication('admin');
+authentication('user');
 ?>
 <!DOCTYPE html>
 <html lang="en">
