@@ -48,3 +48,12 @@ function getNasabahAll()
    $result = mysqli_query($conn, $query);
    return $result;
 }
+
+function getUsersByRole($data)
+{
+   global $conn;
+   $role = validate($data);
+   $query = "SELECT * FROM users WHERE role = '$role'";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}

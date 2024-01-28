@@ -7,7 +7,7 @@ include('includes/header.php'); ?>
       <div class="card">
          <div class="card-header">
             <h4>Nasabah Lists
-               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah User</button>
+               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah User</button>
             </h4>
          </div>
          <div class="card-body">
@@ -56,8 +56,8 @@ include('includes/header.php'); ?>
 </div>
 
 <!-- Modal -->
-<?php include('modal/user/create.php'); ?>
-<?php include('modal/user/edit.php'); ?>
-<?php include('modal/user/delete.php'); ?>
+<?php include('modal/nasabah/create.php'); ?>
+<!-- <?php include('modal/nasabah/edit.php'); ?>
+<?php include('modal/nasabah/delete.php'); ?> -->
 
 <?php include('includes/footer.php'); ?>
