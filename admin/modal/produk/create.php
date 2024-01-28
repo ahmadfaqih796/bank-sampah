@@ -9,7 +9,7 @@
                </button>
             </div>
             <div class="modal-body">
-               <input value="<?= $_SESSION['auth_user']['id'] ?>" name="user_id" id="user_id">
+               <input hidden value="<?= $_SESSION['auth_user']['id'] ?>" name="user_id" id="user_id">
                <div class="mb-3">
                   <label for="name">Nama</label>
                   <input type="text" name="name" id="name" class="form-control" required>
