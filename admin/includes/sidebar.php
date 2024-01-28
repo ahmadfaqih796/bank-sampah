@@ -35,6 +35,14 @@
                <span class="nav-link-text ms-1">Nasabah</span>
             </a>
          </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("produk") ?>" href="produk.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="fa fa-home <?= getColorLink("produk") ?> text-lg"></i>
+               </div>
+               <span class="nav-link-text ms-1">Produk</span>
+            </a>
+         </li>
       </ul>
    </div>
    <div class="sidenav-footer mx-3 ">
