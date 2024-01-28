@@ -11,7 +11,7 @@
          <div class="card-body">
             <?= alertMessage() ?>
             <div class="table-responsive">
-               <table class="table align-items-center mb-0">
+               <table id="myTable" class="table align-items-center mb-0">
                   <thead>
                      <tr>
                         <th>Id</th>
