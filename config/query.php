@@ -49,6 +49,14 @@ function getNasabahAll()
    return $result;
 }
 
+function getFilterNasabah($date)
+{
+   global $conn;
+   $query = "SELECT n.id, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user' AND n.created_at LIKE '%$date%'";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
 function getUsersByRole($data)
 {
    global $conn;

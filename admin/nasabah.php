@@ -6,9 +6,28 @@ include('includes/header.php'); ?>
    <div class="col-md-12">
       <div class="card">
          <div class="card-header">
-            <h4>Nasabah Lists
-               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Nasabah</button>
-            </h4>
+            <div class="row">
+               <div class="col-md-5">
+                  <h4>Nasabah Lists</h4>
+
+               </div>
+               <div class="col-md-7">
+                  <form action="" method="get">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?= isset($_GET['tanggal']) == true ? $_GET['tanggal'] : ''  ?>">
+                        </div>
+                        <div class="col-md-4">
+                           <button class="btn btn-primary">Filter</button>
+                           <a href="nasabah.php" class="btn btn-danger">Reset</a>
+                        </div>
+                        <div class="col-md-4">
+                           <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Nasabah</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
          </div>
          <div class="card-body">
             <?= alertMessage() ?>
@@ -29,7 +48,12 @@ include('includes/header.php'); ?>
                   </thead>
                   <tbody>
                      <?php
-                     $nasabah = getNasabahAll();
+                     if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
+                        print_r($_GET['tanggal']);
+                        $nasabah = getFilterNasabah($_GET['tanggal']);
+                     } else {
+                        $nasabah = getNasabahAll();
+                     }
                      if (mysqli_num_rows($nasabah) > 0) {
                         foreach ($nasabah as $item) {
                      ?>
