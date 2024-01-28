@@ -87,7 +87,7 @@ include('includes/header.php'); ?>
 <!-- Modal -->
 <?php include('modal/nasabah/create.php'); ?>
 <?php include('modal/nasabah/edit.php'); ?>
-<!-- <?php include('modal/nasabah/delete.php'); ?> -->
+<?php include('modal/nasabah/delete.php'); ?>
 
 <?php include('includes/footer.php'); ?>
 

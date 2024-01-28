@@ -42,3 +42,18 @@ if (isset($_POST['editNasabah'])) {
       redirect('/admin/nasabah.php', 'Data Tidak Lengkap');
    }
 }
+
+if (isset($_POST['deleteNasabah'])) {
+   $id = validate($_POST['id']);
+   if ($id != '') {
+      $query = "DELETE FROM nasabah WHERE id = '$id'";
+      $result = mysqli_query($conn, $query);
+      if ($result) {
+         redirect('/admin/nasabah.php', 'Berhasil Menghapus Data');
+      } else {
+         redirect('/admin/nasabah.php', 'Gagal Menghapus Data');
+      }
+   } else {
+      redirect('/admin/nasabah.php', 'Id ini tidak ditemukan');
+   }
+}
