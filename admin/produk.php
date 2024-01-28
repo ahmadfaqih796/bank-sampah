@@ -41,7 +41,7 @@ include('includes/header.php'); ?>
                               <td><?= $item['h_jual'] ?></td>
                               <td><?= $item['h_beli'] ?></td>
                               <td>
-                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" onclick="getUserData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
+                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editProduk" onclick="getProductData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
                                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteUser" onclick="getUserId(<?= $item['id'] ?>)">Hapus</button>
                               </td>
                            </tr>
@@ -59,7 +59,7 @@ include('includes/header.php'); ?>
 
 <!-- Modal -->
 <?php include('modal/produk/create.php'); ?>
-<?php include('modal/nasabah/edit.php'); ?>
+<?php include('modal/produk/edit.php'); ?>
 <?php include('modal/nasabah/delete.php'); ?>
 
 <?php include('includes/footer.php'); ?>

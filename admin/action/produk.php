@@ -18,3 +18,22 @@ if (isset($_POST['saveProduk'])) {
       redirect('/admin/produk.php', 'Data Tidak Lengkap');
    }
 }
+
+if (isset($_POST['editProduk'])) {
+   $id = validate($_POST['id']);
+   $user_id = validate($_POST['user_id']);
+   $name = validate($_POST['name']);
+   $h_beli = validate($_POST['h_beli']);
+   $h_jual = validate($_POST['h_jual']);
+   if ($user_id != '') {
+      $query = "UPDATE product SET user_id = '$user_id', name = '$name', h_beli = '$h_beli', h_jual = '$h_jual' WHERE id = '$id'";
+      $result = mysqli_query($conn, $query);
+      if ($result) {
+         redirect('/admin/produk.php', 'Berhasil Mengedit Data');
+      } else {
+         redirect('/admin/produk.php', 'Gagal Mengedit Data');
+      }
+   } else {
+      redirect('/admin/produk.php', 'Data Tidak Lengkap');
+   }
+}
