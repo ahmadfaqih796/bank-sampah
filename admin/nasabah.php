@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'users';
+$pageTitle = 'nasabah';
 include('includes/header.php'); ?>
 
 <div class="row">
@@ -13,7 +13,7 @@ include('includes/header.php'); ?>
                <div class="col-md-5">
                   <form action="" method="get">
                      <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5 mb-3">
                            <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?= isset($_GET['tanggal']) == true ? $_GET['tanggal'] : ''  ?>" required>
                         </div>
                         <div class="col-md-7">

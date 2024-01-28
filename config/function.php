@@ -45,3 +45,26 @@ function dateNow()
    $new_date = date('Y-m-d H:i:s', $old_date_timestamp);
    return $new_date;
 }
+
+function getActiveLink($page)
+{
+   $currentUrl = $_SERVER['REQUEST_URI'];
+   $filename = basename($currentUrl);
+   $pathInfo = pathinfo($filename);
+   $keyword = $pathInfo['filename'];
+   if ($page == $keyword) {
+      return "active";
+   }
+   return "";
+}
+function getColorLink($page)
+{
+   $currentUrl = $_SERVER['REQUEST_URI'];
+   $filename = basename($currentUrl);
+   $pathInfo = pathinfo($filename);
+   $keyword = $pathInfo['filename'];
+   if ($page == $keyword) {
+      return "";
+   }
+   return "text-dark";
+}
