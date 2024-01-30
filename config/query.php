@@ -49,6 +49,14 @@ function getNasabahAll()
    return $result;
 }
 
+function getTimbanganAll()
+{
+   global $conn;
+   $query = "SELECT t.id,id_transaksi ,u.`name`,n.no_rekening, n.alamat, n.rt, n.rw, p.`name` AS n_barang, p.h_jual, volume,total, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
 function getFilterNasabah($date)
 {
    global $conn;
