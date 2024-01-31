@@ -10,28 +10,24 @@
 				</div>
 				<div class="modal-body">
 					<div class="mb-3">
-						<label for="name">Nama</label>
-						<input type="text" name="name" id="name" class="form-control" required>
-					</div>
-					<div class="mb-3">
-						<label for="phone">No. Telepon</label>
-						<input type="text" name="phone" id="phone" class="form-control">
-					</div>
-					<div class="mb-3">
-						<label for="email">Email</label>
-						<input type="text" name="email" id="email" class="form-control">
-					</div>
-					<div class="mb-3">
-						<label for="password">Password</label>
-						<input type="password" name="password" id="password" class="form-control">
-					</div>
-					<div class="mb-3">
-						<label for="role">Pilih Role</label>
-						<select name="role" id="role" class="form-select" required>
-							<option value="">Pilih Role</option>
-							<option value="admin">Admin</option>
-							<option value="user">User</option>
+						<label for="produk">Pilih Produk</label>
+						<select name="produk" id="produk" class="form-select" required>
+							<option value="">Pilih Produk</option>
+							<?php
+							$produk = getAll("product");
+							if (mysqli_num_rows($produk) > 0) {
+								foreach ($produk as $item) {
+							?>
+									<option value="<?= $item['id'] . "&" . $item['h_jual'] ?>"><?= $item['name'] ?></option>
+							<?php
+								}
+							}
+							?>
 						</select>
+					</div>
+					<div class="mb-3">
+						<label for="volume">Volume</label>
+						<input type="text" placeholder="Masukkan Volume (kg)" name="volume" id="volume" class="form-control">
 					</div>
 				</div>
 				<div class="modal-footer">

@@ -1,6 +1,12 @@
 <?php
 $pageTitle = 'Penimbangan';
-include('includes/header.php'); ?>
+include('includes/header.php');
+if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
+	$timbangan = getFilterNasabah($_GET['tanggal']);
+} else {
+	$timbangan = getTransaksiTimbangan();
+}
+?>
 
 <div class="row">
 	<div class="col-md-12">
@@ -25,7 +31,8 @@ include('includes/header.php'); ?>
 						</form>
 					</div>
 					<div class="col-md-2">
-						<a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a>
+						<button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah Data</button>
+						<!-- <a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a> -->
 					</div>
 				</div>
 			</div>
@@ -46,11 +53,6 @@ include('includes/header.php'); ?>
 						</thead>
 						<tbody>
 							<?php
-							if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-								$timbangan = getFilterNasabah($_GET['tanggal']);
-							} else {
-								$timbangan = getTransaksiTimbangan();
-							}
 							if (mysqli_num_rows($timbangan) > 0) {
 								foreach ($timbangan as $item) {
 							?>
@@ -78,5 +80,8 @@ include('includes/header.php'); ?>
 	</div>
 </div>
 
+
+<!-- Modal -->
+<?php include('modal/timbangan/create_transaksi_user.php'); ?>
 
 <?php include('includes/footer.php'); ?>
