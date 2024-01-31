@@ -25,7 +25,7 @@ include('includes/header.php'); ?>
                   </form>
                </div>
                <div class="col-md-2">
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Nasabah</button>
+                  <button class="btn btn-primary float-end">Tambah Timbangan</button>
                </div>
             </div>
          </div>
@@ -39,6 +39,7 @@ include('includes/header.php'); ?>
                         <th>Name</th>
                         <th>No Rekening</th>
                         <th>Alamat</th>
+                        <th>Total barang</th>
                         <th>Tanggal Dibuat</th>
                         <th class="print_view">Aksi</th>
                      </tr>
@@ -48,7 +49,7 @@ include('includes/header.php'); ?>
                      if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         $timbangan = getFilterNasabah($_GET['tanggal']);
                      } else {
-                        $timbangan = getTimbanganAll();
+                        $timbangan = getTransaksiTimbangan();
                      }
                      if (mysqli_num_rows($timbangan) > 0) {
                         foreach ($timbangan as $item) {
@@ -58,10 +59,11 @@ include('includes/header.php'); ?>
                               <td><?= $item['name'] ?></td>
                               <td><?= $item['no_rekening'] ?></td>
                               <td><?= $item['alamat'] ?></td>
+                              <td><?= $item['total_barang'] ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td class="print_view">
-                                 <a class="btn btn-warning btn-sm" href="edit-timbangan.php?id=<?= $item['id'] ?>">Lihat</a>
-                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
+                                 <a class="btn btn-warning btn-sm" href="/admin/form/timbangan/create.php?id=<?= $item['id'] ?>">Lihat</a>
+                                 <!-- <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button> -->
                               </td>
                            </tr>
                      <?php
@@ -76,32 +78,5 @@ include('includes/header.php'); ?>
    </div>
 </div>
 
-<!-- Modal -->
-<?php include('modal/nasabah/create.php'); ?>
-<?php include('modal/nasabah/edit.php'); ?>
-<?php include('modal/nasabah/delete.php'); ?>
 
 <?php include('includes/footer.php'); ?>
-
-<script>
-   function printTable() {
-      var style = '<style>';
-      style += 'body { font-size: 12px; }';
-      style += 'h2 { text-align: center; }';
-      style += '#myTable { width: 100%; border-collapse: collapse; }';
-      style += 'table .print_view { display: none; }';
-      style += '#myTable th, #myTable td { border: 1px solid #ddd; padding: 8px; text-align: left; }';
-      style += '</style>';
-
-      var printWindow = window.open('', '_blank');
-
-      printWindow.document.write('<html><head><title>Cetak Tabel</title>' + style + '</head><body>');
-      printWindow.document.write('<h2>Nasabah Lists</h2>');
-      printWindow.document.write(document.getElementById('myTable').outerHTML);
-      printWindow.document.write('</body></html>');
-
-      printWindow.document.close();
-
-      printWindow.print();
-   }
-</script>
