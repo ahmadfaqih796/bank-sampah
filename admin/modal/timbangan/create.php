@@ -1,9 +1,9 @@
 <div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<form action="action/user.php" method="post">
+			<form action="action/timbangan.php" method="post">
 				<div class="modal-header">
-					<h5 class="modal-title" id="addDataModalLabel">Tambah User</h5>
+					<h5 class="modal-title" id="addDataModalLabel">Tambah Timbangan</h5>
 					<button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
