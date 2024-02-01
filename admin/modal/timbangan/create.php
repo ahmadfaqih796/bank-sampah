@@ -9,6 +9,8 @@
 					</button>
 				</div>
 				<div class="modal-body">
+					<input type="text" hidden value="<?= $_GET['nasabah'] ?>" name="user_id" id="user_id" class="form-control">
+					<input type="text" hidden value="<?= $_GET['id_transaksi'] ?>" name="transaksi_id" id="transaksi_id" class="form-control">
 					<div class="mb-3">
 						<label for="produk">Pilih Produk</label>
 						<select name="produk" id="produk" class="form-select" required>
