@@ -19,7 +19,7 @@ include('includes/header.php'); ?>
             <div class="card-body">
                <?= alertMessage() ?>
                <div class="table-responsive">
-                  <table id="myTable" class="table align-items-center mb-0">
+                  <table class="table align-items-center mb-0">
                      <thead>
                         <tr>
                            <th>No</th>
@@ -36,6 +36,8 @@ include('includes/header.php'); ?>
                      </thead>
                      <tbody>
                         <?php
+                        $no = 1;
+                        $subtotal = 0;
                         if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                            $timbangan = getFilterNasabah($_GET['tanggal']);
                         } else {
@@ -43,9 +45,11 @@ include('includes/header.php'); ?>
                         }
                         if (mysqli_num_rows($timbangan) > 0) {
                            foreach ($timbangan as $item) {
+                              $subtotal += $item['total'];
                         ?>
                               <tr>
-                                 <td><?= $item['id_transaksi'] ?></td>
+                                 <!-- <td><?= $item['id_transaksi'] ?></td> -->
+                                 <td><?= $no++ ?></td>
                                  <td><?= $item['name'] ?></td>
                                  <td><?= $item['no_rekening'] ?></td>
                                  <td><?= $item['alamat'] ?></td>
@@ -64,6 +68,13 @@ include('includes/header.php'); ?>
                         }
                         ?>
                      </tbody>
+                     <tfoot>
+                        <tr>
+                           <th colspan="6"></th>
+                           <th class="text-center">Sub Total</th>
+                           <th><?= $subtotal ?></th>
+                        </tr>
+                     </tfoot>
                   </table>
                </div>
             </div>
