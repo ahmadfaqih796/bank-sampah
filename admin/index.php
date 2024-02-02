@@ -1,6 +1,13 @@
 <?php
 $pageTitle = 'dashboard';
-include('includes/header.php'); ?>
+include('includes/header.php');
+$users = getAll('users');
+$produk = getAll('product');
+$nasabah = getAll('nasabah');
+$t_users = mysqli_num_rows($users);
+$t_nasabah = mysqli_num_rows($nasabah);
+$t_produk = mysqli_num_rows($produk);
+?>
 
 <div class="row">
 
@@ -12,7 +19,7 @@ include('includes/header.php'); ?>
                   <div class="numbers">
                      <p class="text-sm mb-0 text-capitalize font-weight-bold">User</p>
                      <h5 class="font-weight-bolder mb-0">
-                        5
+                        <?= $t_users ?>
                         <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
                      </h5>
                   </div>
@@ -34,7 +41,7 @@ include('includes/header.php'); ?>
                   <div class="numbers">
                      <p class="text-sm mb-0 text-capitalize font-weight-bold">Produk</p>
                      <h5 class="font-weight-bolder mb-0">
-                        7
+                        <?= $t_produk ?>
                         <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
                      </h5>
                   </div>
@@ -56,7 +63,7 @@ include('includes/header.php'); ?>
                   <div class="numbers">
                      <p class="text-sm mb-0 text-capitalize font-weight-bold">Nasabah</p>
                      <h5 class="font-weight-bolder mb-0">
-                        2
+                        <?= $t_nasabah ?>
                         <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
                      </h5>
                   </div>
