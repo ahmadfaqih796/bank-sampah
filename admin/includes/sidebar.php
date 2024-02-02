@@ -22,7 +22,7 @@
          <li class="nav-item">
             <a class="nav-link  <?= getActiveLink("users") ?>" href="users.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home <?= getColorLink("users") ?> text-lg"></i>
+                  <i class="fa fa-users <?= getColorLink("users") ?> text-lg"></i>
                </div>
                <span class="nav-link-text ms-1">Users</span>
             </a>
@@ -30,7 +30,7 @@
          <li class="nav-item">
             <a class="nav-link <?= getActiveLink("nasabah") ?>" href="nasabah.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home <?= getColorLink("nasabah") ?> text-lg"></i>
+                  <i class="fa fa-user-tie <?= getColorLink("nasabah") ?> text-lg"></i>
                </div>
                <span class="nav-link-text ms-1">Nasabah</span>
             </a>
@@ -38,7 +38,7 @@
          <li class="nav-item">
             <a class="nav-link <?= getActiveLink("produk") ?>" href="produk.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home <?= getColorLink("produk") ?> text-lg"></i>
+                  <i class="fa fa-suitcase <?= getColorLink("produk") ?> text-lg"></i>
                </div>
                <span class="nav-link-text ms-1">Produk</span>
             </a>
@@ -49,7 +49,7 @@
          <li class="nav-item">
             <a class="nav-link <?= getActiveLink("timbangan") ?>" href="timbangan.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home <?= getColorLink("timbangan") ?> text-lg"></i>
+                  <i class="fa fa-anchor <?= getColorLink("timbangan") ?> text-lg"></i>
                </div>
                <span class="nav-link-text ms-1">Penimbangan</span>
             </a>
