@@ -1,5 +1,6 @@
 <?php
 $pageTitle = 'nasabah';
+$tanggal = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
 include('includes/header.php'); ?>
 
 <div class="row">
@@ -19,14 +20,13 @@ include('includes/header.php'); ?>
                         <div class="col-md-7">
                            <button class="btn btn-primary">Filter</button>
                            <a href="nasabah.php" class="btn btn-danger">Reset</a>
-                           <button class="btn btn-success float-end" onclick="printTable()">Cetak</button>
+                           <a href="print/nasabah.php?get=all&tanggal=<?= $tanggal ?>" class="btn btn-success">Cetak</a>
                         </div>
                      </div>
                   </form>
                </div>
                <div class="col-md-2">
-                  <a href="print.php" class="btn btn-primary">Cetak A</a>
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Nasabah</button>
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah</button>
                </div>
             </div>
          </div>
