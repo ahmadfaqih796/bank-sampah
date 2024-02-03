@@ -25,6 +25,7 @@ include('includes/header.php'); ?>
                   </form>
                </div>
                <div class="col-md-2">
+                  <a href="print.php" class="btn btn-primary">Cetak A</a>
                   <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah">Tambah Nasabah</button>
                </div>
             </div>
