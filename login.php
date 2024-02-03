@@ -14,7 +14,7 @@ if (isset($_SESSION['auth'])) {
          <div class="col-md-4">
             <div class="card">
                <div class="card-header text-center">
-                  <h4>Login Bank Sampah</h4>
+                  <h4>Login</h4>
                </div>
                <div class="card-body shadow">
                   <?php alertMessage() ?>
