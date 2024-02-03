@@ -69,6 +69,7 @@ include('includes/header.php'); ?>
                               <td><?= $item['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td class="print_view">
+                                 <a href="print/nasabah.php?get=detail&id=<?= $item['id'] ?>" class="btn btn-success btn-sm" target="_blank">Cetak</a>
                                  <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
                                  <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
                               </td>

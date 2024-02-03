@@ -49,6 +49,17 @@ function getNasabahAll()
    return $result;
 }
 
+function getNasabahById($id)
+{
+   global $conn;
+   $query = "SELECT n.id, n.user_id, n.no_rekening, n.saldo, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user' AND n.id = '$id' LIMIT 1";
+   $result = mysqli_query($conn, $query);
+   // Fetch the data from the result set
+   $nasabah = mysqli_fetch_assoc($result);
+   mysqli_free_result($result);
+   return $nasabah;
+}
+
 function getTimbanganAll()
 {
    global $conn;
