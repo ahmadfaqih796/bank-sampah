@@ -24,6 +24,7 @@ if ($_GET['get'] == 'all') {
                <th>No</th>
                <th>Name</th>
                <th>No Rekening</th>
+               <th>Saldo</th>
                <th>RT</th>
                <th>RW</th>
                <th>Alamat</th>
@@ -47,6 +48,7 @@ if ($_GET['get'] == 'all') {
             <td>' . $no++ . '</td>
             <td>' . $item['fullname'] . '</td>
             <td>' . $item['no_rekening'] . '</td>
+            <td>' . $item['saldo'] . '</td>
             <td>' . $item['rt'] . '</td>
             <td>' . $item['rw'] . '</td>
             <td>' . $item['alamat'] . '</td>
