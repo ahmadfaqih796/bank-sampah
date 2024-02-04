@@ -23,7 +23,7 @@ include('includes/header.php'); ?>
                      <thead>
                         <tr>
                            <th>No</th>
-                           <th>Name</th>
+                           <th>Nama</th>
                            <th>No Rekening</th>
                            <th>Alamat</th>
                            <th>Nama barang</th>

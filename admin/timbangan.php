@@ -67,7 +67,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['total_harga'] ?></td>
 										<td><?= $item['created_at'] ?></td>
 										<td class="print_view">
-											<a class="btn btn-warning btn-sm" href="/admin/form/timbangan/create.php?id=<?= $item['id'] ?>">Lihat</a>
+											<a class="btn btn-warning btn-sm" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>">Cetak</a>
 											<!-- <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button> -->
 										</td>
 									</tr>

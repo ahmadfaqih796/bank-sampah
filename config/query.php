@@ -70,7 +70,7 @@ function getTimbanganAll()
 function getTimbanganById($user_id, $transaksi_id)
 {
    global $conn;
-   $query = "SELECT t.id,id_transaksi ,u.`name`,n.no_rekening, n.alamat, n.rt, n.rw, p.`name` AS n_barang, p.h_jual, volume,total, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id WHERE t.user_id = '$user_id' AND t.id_transaksi = '$transaksi_id'";
+   $query = "SELECT t.id,id_transaksi, t.user_id, u.`name`,n.no_rekening, n.alamat, n.rt, n.rw, p.`name` AS n_barang, p.h_jual, volume,total, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id WHERE t.user_id = '$user_id' AND t.id_transaksi = '$transaksi_id'";
    $result = mysqli_query($conn, $query);
    return $result;
 }
@@ -78,7 +78,7 @@ function getTimbanganById($user_id, $transaksi_id)
 function getTransaksiTimbangan()
 {
    global $conn;
-   $query = "SELECT t.id, id_transaksi, u.`name`, n.no_rekening, n.alamat, n.rt, n.rw, COUNT(id_transaksi) AS total_barang, SUM(t.total) AS total_harga, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id GROUP BY t.id_transaksi";
+   $query = "SELECT t.id, id_transaksi, t.user_id, u.`name`, n.no_rekening, n.alamat, n.rt, n.rw, COUNT(id_transaksi) AS total_barang, SUM(t.total) AS total_harga, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id GROUP BY t.id_transaksi";
    $result = mysqli_query($conn, $query);
    return $result;
 }
