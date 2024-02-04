@@ -11,7 +11,7 @@ include('includes/header.php'); ?>
                   <h4>Produk Lists</h4>
                </div>
                <div class="col-md-3">
-                  <button class="btn btn-success" onclick="printTable()">Cetak</button>
+                  <a class="btn btn-success" href="print/product.php?get=all" target="_blank">Cetak</a>
                   <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addProduk">Tambah Produk</button>
                </div>
             </div>
