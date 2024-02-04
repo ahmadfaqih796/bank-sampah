@@ -2,7 +2,7 @@
 $pageTitle = 'Penimbangan';
 include('includes/header.php');
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-	$timbangan = getFilterNasabah($_GET['tanggal']);
+	$timbangan = getTransaksiTimbanganByDate($_GET['tanggal']);
 } else {
 	$timbangan = getTransaksiTimbangan();
 }
@@ -24,7 +24,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 								</div>
 								<div class="col-md-7">
 									<button class="btn btn-primary">Filter</button>
-									<a href="nasabah.php" class="btn btn-danger">Reset</a>
+									<a href="timbangan.php" class="btn btn-danger">Reset</a>
 									<button class="btn btn-success float-end" onclick="printTable()">Cetak</button>
 								</div>
 							</div>
