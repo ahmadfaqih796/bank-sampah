@@ -79,11 +79,11 @@ if ($_GET['get'] == 'detail') {
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Tabel Detail Transaksi Timbangan</title>
+      <title>Tabel Detail Laporan Timbangan</title>
    </head>
    
    <body>
-      <h1 style="text-align: center;">Detail Transaksi</h1>
+      <h1 style="text-align: center;">Detail Laporan Timbangan</h1>
       <table width="50%" cellspacing="0" cellpadding="5">
          <tr>
             <td>Nama</td>
@@ -94,11 +94,6 @@ if ($_GET['get'] == 'detail') {
             <td>No Rekening</td>
             <td>:</td>
             <td>' . $rows[0]['no_rekening'] . '</td>
-         </tr>
-         <tr>
-            <td>Saldo</td>
-            <td>:</td>
-            <td>' . $rows[0]['saldo'] . '</td>
          </tr>
          <tr>
             <td>RT</td>

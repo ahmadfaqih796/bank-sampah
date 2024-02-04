@@ -7,7 +7,7 @@ include('includes/header.php'); ?>
       <div class="card">
          <div class="card-header">
             <h4>User Lists
-               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah User</button>
+               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah</button>
             </h4>
          </div>
          <div class="card-body">

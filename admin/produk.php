@@ -12,7 +12,7 @@ include('includes/header.php'); ?>
                </div>
                <div class="col-md-3">
                   <a class="btn btn-success" href="print/product.php?get=all" target="_blank">Cetak</a>
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addProduk">Tambah Produk</button>
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addProduk">Tambah</button>
                </div>
             </div>
          </div>

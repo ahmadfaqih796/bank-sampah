@@ -32,7 +32,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 						</form>
 					</div>
 					<div class="col-md-2">
-						<button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah Data</button>
+						<button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah</button>
 						<!-- <a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a> -->
 					</div>
 				</div>
@@ -67,7 +67,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['total_harga'] ?></td>
 										<td><?= $item['created_at'] ?></td>
 										<td class="print_view">
-											<a class="btn btn-warning btn-sm" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>">Cetak</a>
+											<a class="btn btn-warning btn-sm" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
 											<!-- <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button> -->
 										</td>
 									</tr>
