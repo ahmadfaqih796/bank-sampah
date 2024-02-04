@@ -12,7 +12,7 @@ include('includes/header.php'); ?>
                </div>
                <div class="col-md-3">
                   <button class="btn btn-success" onclick="printTable()">Cetak</button>
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addData">Tambah Timbangan</button>
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addData">Tambah</button>
 
                </div>
             </div>
