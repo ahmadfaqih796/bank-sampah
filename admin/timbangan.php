@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Penimbangan';
 include('includes/header.php');
+$tanggal = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 	$timbangan = getTransaksiTimbanganByDate($_GET['tanggal']);
 } else {
@@ -25,7 +26,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 								<div class="col-md-7">
 									<button class="btn btn-primary">Filter</button>
 									<a href="timbangan.php" class="btn btn-danger">Reset</a>
-									<button class="btn btn-success float-end" onclick="printTable()">Cetak</button>
+									<a class="btn btn-success float-end" href="print/timbangan.php?get=timbangan&tanggal=<?= $tanggal ?>">Cetak</a>
 								</div>
 							</div>
 						</form>
@@ -47,6 +48,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 								<th>No Rekening</th>
 								<th>Alamat</th>
 								<th>Total barang</th>
+								<th>Total Harga</th>
 								<th>Tanggal Dibuat</th>
 								<th class="print_view">Aksi</th>
 							</tr>
@@ -62,6 +64,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['no_rekening'] ?></td>
 										<td><?= $item['alamat'] ?></td>
 										<td><?= $item['total_barang'] ?></td>
+										<td><?= $item['total_harga'] ?></td>
 										<td><?= $item['created_at'] ?></td>
 										<td class="print_view">
 											<a class="btn btn-warning btn-sm" href="/admin/form/timbangan/create.php?id=<?= $item['id'] ?>">Lihat</a>
