@@ -50,6 +50,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         <?php
                         $no = 1;
                         $subtotal = 0;
+                        $total_barang = mysqli_num_rows($timbangan);
                         if (mysqli_num_rows($timbangan) > 0) {
                            foreach ($timbangan as $item) {
                               $subtotal += $item['total'];

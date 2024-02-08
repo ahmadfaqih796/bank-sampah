@@ -1,7 +1,7 @@
 <div class="modal fade" id="addInvoice" tabindex="-1" role="dialog" aria-labelledby="addInvoiceModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-         <form action="action/timbangan.php" method="post">
+         <form action="action/invoice.php" method="post">
             <div class="modal-header">
                <h5 class="modal-title" id="addInvoiceModalLabel">Pembayaran</h5>
                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
@@ -12,7 +12,7 @@
                <input type="text" hidden value="<?= $_GET['nasabah'] ?>" name="user_id" id="user_id" class="form-control">
                <input type="text" hidden value="<?= $_GET['id_transaksi'] ?>" name="transaksi_id" id="transaksi_id" class="form-control">
                <div class="mb-3">
-                  <label for="m_pembayaran">Pilih Pembayaran</label>
+                  <label for="m_pembayaran">Pembayaran</label>
                   <select name="m_pembayaran" id="m_pembayaran" class="form-select" required>
                      <option value="">Pilih Pembayaran</option>
                      <option value="tunai">Tunai</option>
@@ -23,10 +23,15 @@
                   <label for="bayar">Bayar</label>
                   <input type="text" name="bayar" id="bayar" class="form-control">
                </div>
+               <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
+               <input type="text" hidden name="t_harga" id="t_harga" value="<?= $subtotal ?>" class="form-control">
+               <input type="text" hidden name="is_paid" id="is_paid" class="form-control">
+               <input type="text" hidden name="kembalian" id="kembalian" class="form-control">
+
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
-               <button type="submit" class="btn bg-gradient-primary" name="savePembayaran">Simpan</button>
+               <button type="submit" class="btn bg-gradient-primary" name="saveInvoice">Simpan</button>
             </div>
          </form>
       </div>
