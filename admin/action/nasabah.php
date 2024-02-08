@@ -1,5 +1,6 @@
 <?php
 require('../../config/function.php');
+
 if (isset($_POST['saveNasabah'])) {
    $user_id = validate($_POST['nasabah']);
    $no_rekening = validate($_POST['no_rekening']);
@@ -7,12 +8,16 @@ if (isset($_POST['saveNasabah'])) {
    $rt = validate($_POST['rt']);
    $rw = validate($_POST['rw']);
    $jml_warga = validate($_POST['jml_warga']);
-   // $dateNow = dateNow();
+
+   $query_user = "SELECT * FROM nasabah WHERE user_id = '$user_id' LIMIT 1";
+   $cek_user = mysqli_query($conn, $query_user);
 
    if ($user_id != '') {
-      $query = "INSERT INTO nasabah (user_id, no_rekening, alamat, rt, rw, jml_warga) VALUES ('$user_id', '$no_rekening', '$alamat', '$rt', '$rw', '$jml_warga')";
-      $result = mysqli_query($conn, $query);
-      if ($result) {
+      if (mysqli_num_rows($cek_user) > 0) {
+         redirect('/admin/nasabah.php', 'Nasabah Sudah Terdaftar');
+      } else if (mysqli_num_rows($cek_user) == 0) {
+         $query = "INSERT INTO nasabah (user_id, no_rekening, alamat, rt, rw, jml_warga) VALUES ('$user_id', '$no_rekening', '$alamat', '$rt', '$rw', '$jml_warga')";
+         $result = mysqli_query($conn, $query);
          redirect('/admin/nasabah.php', 'Berhasil Menyimpan Data');
       } else {
          redirect('/admin/nasabah.php', 'Gagal Menyimpan Data');
