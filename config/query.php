@@ -115,6 +115,16 @@ function getInvoice()
    return $result;
 }
 
+function getInvoiceById($user_id, $transaksi_id)
+{
+   global $conn;
+   $query = "SELECT i.id, i.transaksi_id, i.user_id, `name`, no_rekening, saldo, alamat, t_barang, t_harga, m_pembayaran, is_paid, bayar, kembalian, i.created_at FROM invoice i LEFT JOIN users u ON i.user_id = u.id LEFT JOIN nasabah n ON i.user_id = n.user_id WHERE i.user_id = '$user_id' AND i.transaksi_id = '$transaksi_id' ORDER BY i.id DESC";
+   $result = mysqli_query($conn, $query);
+   $data = mysqli_fetch_assoc($result);
+   mysqli_free_result($result);
+   return $data;
+}
+
 function getFilterInvoice($date)
 {
    global $conn;

@@ -71,11 +71,11 @@ if ($_GET['get'] == 'invoice') {
 
 if ($_GET['get'] == 'detail') {
    $no = 1;
-   $timbangan = getTimbanganById($_GET['user_id'], $_GET['transaksi_id']);
-   $total = mysqli_num_rows($timbangan);
+   $invoice = getTimbanganById($_GET['user_id'], $_GET['transaksi_id']);
+   $total = mysqli_num_rows($invoice);
 
    $rows = array();
-   while ($row = mysqli_fetch_assoc($timbangan)) {
+   while ($row = mysqli_fetch_assoc($invoice)) {
       $rows[] = $row;
    }
 
@@ -129,7 +129,7 @@ if ($_GET['get'] == 'detail') {
             </tr>
          </thead>
          <tbody>';
-   foreach ($timbangan as $item) {
+   foreach ($invoice as $item) {
       $subtotal += $item['total'];
       $html .= '
          <tr>
