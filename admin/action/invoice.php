@@ -15,7 +15,7 @@ if (isset($_POST['saveInvoice'])) {
       $q_paid = '&paid=1';
    }
    $base_url = '/admin/timbangan_create.php?nasabah=' . $id_user . '&id_transaksi=' . $id_transaksi . $q_paid;
-   $base_url_timbangan = '/admin/timbangan.php';
+   $base_url_timbangan = '/admin/transaksi.php';
    if ($m_pembayaran == "tunai") {
       $bayar = validate($_POST['bayar']);
       $kembalian = $bayar - $t_harga;
