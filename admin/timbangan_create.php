@@ -1,6 +1,11 @@
 <?php
 $pageTitle = 'Penimbangan';
 include('includes/header.php');
+if (isset($_GET['paid']) && $_GET['paid'] != '') {
+   $q_paid = 1;
+} else {
+   $q_paid = 0;
+}
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
    $timbangan = getFilterNasabah($_GET['tanggal']);
 } else {
@@ -17,15 +22,20 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                   <h4>Penimbangan</h4>
                </div>
                <div class="col-md-3">
-                  <?php
-                  if (mysqli_num_rows($timbangan) > 0) {
-                  ?>
-                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Bayar</button>
-                  <?php
-                  }
-                  ?>
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addData">Tambah</button>
-
+                  <div class="d-flex justify-content-end">
+                     <?php
+                     if (mysqli_num_rows($timbangan) > 0) {
+                     ?>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Bayar</button>
+                     <?php
+                     }
+                     if ($q_paid == 0) {
+                     ?>
+                        <button class="btn btn-primary" style="margin-left: 50px;" data-bs-toggle="modal" data-bs-target="#addData">Tambah</button>
+                     <?php
+                     }
+                     ?>
+                  </div>
                </div>
             </div>
             <div class="card-body">
@@ -42,8 +52,6 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                            <th>Harga</th>
                            <th>Volume</th>
                            <th>Total</th>
-                           <!-- <th>Tanggal Dibuat</th> -->
-                           <!-- <th class="print_view">Aksi</th> -->
                         </tr>
                      </thead>
                      <tbody>
@@ -65,11 +73,6 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                                  <td><?= $item['h_jual'] ?></td>
                                  <td><?= $item['volume'] ?></td>
                                  <td><?= $item['total'] ?></td>
-                                 <!-- <td><?= $item['created_at'] ?></td> -->
-                                 <!-- <td class="print_view">
-                                 <a class="btn btn-warning btn-sm" href="/admin/form/timbangan/create.php?id=<?= $item['id'] ?>">Lihat</a>
-                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
-                              </td> -->
                               </tr>
                         <?php
                            }

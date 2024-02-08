@@ -9,7 +9,12 @@ if (isset($_POST['saveInvoice'])) {
    $t_harga = validate($_POST['t_harga']);
    $is_paid = 1;
 
-   $base_url = '/admin/timbangan_create.php?nasabah=' . $id_user . '&id_transaksi=' . $id_transaksi;
+   if (isset($_GET['paid']) && $_GET['paid'] != '') {
+      $q_paid = '&paid=1';
+   } else {
+      $q_paid = '&paid=1';
+   }
+   $base_url = '/admin/timbangan_create.php?nasabah=' . $id_user . '&id_transaksi=' . $id_transaksi . $q_paid;
    $base_url_timbangan = '/admin/timbangan.php';
    if ($m_pembayaran == "tunai") {
       $bayar = validate($_POST['bayar']);

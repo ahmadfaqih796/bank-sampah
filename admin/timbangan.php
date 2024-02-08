@@ -43,12 +43,13 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 					<table id="myTable" class="table align-items-center mb-0">
 						<thead>
 							<tr>
-								<th>Id Transaksi</th>
+								<th>Id</th>
 								<th>Name</th>
 								<th>No Rekening</th>
 								<th>Alamat</th>
 								<th>Total barang</th>
 								<th>Total Harga</th>
+								<th>Status</th>
 								<th>Tanggal Dibuat</th>
 								<th class="print_view">Aksi</th>
 							</tr>
@@ -65,10 +66,15 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['alamat'] ?></td>
 										<td><?= $item['total_barang'] ?></td>
 										<td><?= $item['total_harga'] ?></td>
+										<td><?= $item['is_paid'] ? "Lunas" : "Belum Bayar" ?></td>
 										<td><?= $item['created_at'] ?></td>
-										<td class="print_view">
-											<a class="btn btn-warning btn-sm" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
-											<!-- <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button> -->
+										<td>
+											<a class="btn btn-warning m-2" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
+											<?php if ($item['is_paid'] == null) { ?>
+												<a href="timbangan_create.php?nasabah=<?= $item['user_id'] ?>&id_transaksi=<?= $item['id_transaksi'] ?>&paid=1" class="btn btn-primary m-2">Bayar</a>
+											<?php
+											}
+											?>
 										</td>
 									</tr>
 							<?php
@@ -85,6 +91,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 
 
 <!-- Modal -->
+<?php include('modal/invoice/create.php'); ?>
 <?php include('modal/timbangan/create_transaksi_user.php'); ?>
 
 <?php include('includes/footer.php'); ?>
