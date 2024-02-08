@@ -17,7 +17,7 @@
                   if (mysqli_num_rows($nasabah) > 0) {
                      foreach ($nasabah as $item) {
                   ?>
-                        <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                        <option value="<?= $item['id'] ?>"><?= $item['name'] . " - " . $item['alamat'] ?></option>
                   <?php
                      }
                   }

@@ -103,7 +103,7 @@ function getUsersByRole($data)
 {
    global $conn;
    $role = validate($data);
-   $query = "SELECT * FROM users WHERE role = '$role'";
+   $query = "SELECT u.id, u.name, n.alamat FROM users u LEFT JOIN nasabah n ON u.id = n.user_id WHERE role = '$role'";
    $result = mysqli_query($conn, $query);
    return $result;
 }
