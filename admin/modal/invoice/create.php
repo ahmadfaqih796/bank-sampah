@@ -12,6 +12,14 @@
                <input type="text" hidden value="<?= $_GET['nasabah'] ?>" name="user_id" id="user_id" class="form-control">
                <input type="text" hidden value="<?= $_GET['id_transaksi'] ?>" name="transaksi_id" id="transaksi_id" class="form-control">
                <div class="mb-3">
+                  <label>Total Barang</label>
+                  <input disabled type="text" value="<?= $total_barang ?>" class="form-control">
+               </div>
+               <div class="mb-3">
+                  <label>Total Harga</label>
+                  <input disabled type="text" value="<?= $subtotal ?>" class="form-control">
+               </div>
+               <div class="mb-3">
                   <label for="m_pembayaran">Pembayaran</label>
                   <select name="m_pembayaran" id="m_pembayaran" class="form-select" required>
                      <option value="">Pilih Pembayaran</option>
@@ -25,9 +33,7 @@
                </div>
                <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
                <input type="text" hidden name="t_harga" id="t_harga" value="<?= $subtotal ?>" class="form-control">
-               <input type="text" hidden name="is_paid" id="is_paid" class="form-control">
                <input type="text" hidden name="kembalian" id="kembalian" class="form-control">
-
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
