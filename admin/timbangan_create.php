@@ -1,6 +1,12 @@
 <?php
 $pageTitle = 'Penimbangan';
-include('includes/header.php'); ?>
+include('includes/header.php');
+if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
+   $timbangan = getFilterNasabah($_GET['tanggal']);
+} else {
+   $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
+}
+?>
 
 <div class="row">
    <div class="col-md-12">
@@ -11,7 +17,13 @@ include('includes/header.php'); ?>
                   <h4>Penimbangan</h4>
                </div>
                <div class="col-md-3">
-                  <button class="btn btn-success" onclick="printTable()">Cetak</button>
+                  <?php
+                  if (mysqli_num_rows($timbangan) > 0) {
+                  ?>
+                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Bayar</button>
+                  <?php
+                  }
+                  ?>
                   <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addData">Tambah</button>
 
                </div>
@@ -38,11 +50,6 @@ include('includes/header.php'); ?>
                         <?php
                         $no = 1;
                         $subtotal = 0;
-                        if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-                           $timbangan = getFilterNasabah($_GET['tanggal']);
-                        } else {
-                           $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
-                        }
                         if (mysqli_num_rows($timbangan) > 0) {
                            foreach ($timbangan as $item) {
                               $subtotal += $item['total'];
@@ -82,29 +89,7 @@ include('includes/header.php'); ?>
       </div>
    </div>
 
+   <?php include('modal/invoice/create.php'); ?>
    <?php include('modal/timbangan/create.php'); ?>
-
-   <script>
-      function printTable() {
-         var style = '<style>';
-         style += 'body { font-size: 12px; }';
-         style += 'h2 { text-align: center; }';
-         style += '#myTable { width: 100%; border-collapse: collapse; }';
-         style += 'table .print_view { display: none; }';
-         style += '#myTable th, #myTable td { border: 1px solid #ddd; padding: 8px; text-align: left; }';
-         style += '</style>';
-
-         var printWindow = window.open('', '_blank');
-
-         printWindow.document.write('<html><head><title>Cetak Tabel</title>' + style + '</head><body>');
-         printWindow.document.write('<h2>Timbangan Lists</h2>');
-         printWindow.document.write(document.getElementById('myTable').outerHTML);
-         printWindow.document.write('</body></html>');
-
-         printWindow.document.close();
-
-         printWindow.print();
-      }
-   </script>
 
    <?php include('includes/footer.php'); ?>
