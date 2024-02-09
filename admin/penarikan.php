@@ -47,7 +47,7 @@ $invoice = getPenarikanSaldo();
                               <td><?= $item['t_sisa_saldo'] ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td>
-                                 <a class="btn btn-warning m-2" href="print/penarikan.php?get=detail&transaksi_id=<?= $item['transaksi_id'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
+                                 <a class="btn btn-warning m-2" href="print/penarikan.php?get=detail&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
                               </td>
                            </tr>
                      <?php

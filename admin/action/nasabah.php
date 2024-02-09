@@ -62,3 +62,21 @@ if (isset($_POST['deleteNasabah'])) {
       redirect('/admin/nasabah.php', 'Id ini tidak ditemukan');
    }
 }
+
+if (isset($_POST['penarikanSaldoNasabah'])) {
+   $user_id = validate($_POST['p_id_nasabah']);
+   $t_saldo = validate($_POST['t_saldo']);
+   $t_penarikan = validate($_POST['t_penarikan']);
+   $s_saldo = $t_saldo - $t_penarikan;
+   if ($t_saldo > $t_penarikan) {
+      $query = "INSERT INTO penarikan (user_id, t_saldo, t_penarikan, t_sisa_saldo) VALUES ('$user_id', '$t_saldo', '$t_penarikan', '$s_saldo')";
+      $result = mysqli_query($conn, $query);
+      if ($result) {
+         redirect('/admin/penarikan.php', 'Berhasil Penarikan Saldo');
+      } else {
+         redirect('/admin/nasabah.php', 'Gagal Penarikan Saldo');
+      }
+   } else {
+      redirect('/admin/nasabah.php', 'Penarikan Saldo Tidak Boleh Lebih Besar Dari Saldo Anda');
+   }
+}
