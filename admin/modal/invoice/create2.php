@@ -1,9 +1,9 @@
 <div class="modal fade" id="addInvoice" tabindex="-1" role="dialog" aria-labelledby="addInvoiceModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-         <form action="action/transaksi.php" method="post">
+         <form action="action/invoice.php" method="post">
             <div class="modal-header">
-               <h5 class="modal-title" id="addInvoiceModalLabel">Penarikan</h5>
+               <h5 class="modal-title" id="addInvoiceModalLabel">Pembayaran</h5>
                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -20,15 +20,20 @@
                   <input disabled type="text" value="<?= $subtotal ?>" class="form-control">
                </div>
                <div class="mb-3">
-                  <label for="m_penarikan">Penarikan</label>
-                  <select name="m_penarikan" id="m_penarikan" class="form-select" required>
-                     <option value="">Pilih Penarikan</option>
+                  <label for="m_pembayaran">Pembayaran</label>
+                  <select name="m_pembayaran" id="m_pembayaran" class="form-select" required>
+                     <option value="">Pilih Pembayaran</option>
                      <option value="tunai">Tunai</option>
                      <option value="saldo">Saldo</option>
                   </select>
                </div>
+               <div id="form_bayar" class="mb-3">
+                  <label for="bayar">Bayar</label>
+                  <input type="text" name="bayar" id="bayar" class="form-control">
+               </div>
                <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
                <input type="text" hidden name="t_harga" id="t_harga" value="<?= $subtotal ?>" class="form-control">
+               <input type="text" hidden name="kembalian" id="kembalian" class="form-control">
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -40,7 +45,7 @@
 </div>
 
 <script>
-   document.getElementById('m_penarikan').addEventListener('change', function() {
+   document.getElementById('m_pembayaran').addEventListener('change', function() {
       var selectedId = this.value;
       var form_bayar = document.getElementById('form_bayar');
       var input_bayar = document.getElementById('bayar');
@@ -51,5 +56,5 @@
          input_bayar.value = 0;
       }
    });
-   document.getElementById('m_penarikan').dispatchEvent(new Event('change'));
+   document.getElementById('m_pembayaran').dispatchEvent(new Event('change'));
 </script>
