@@ -158,3 +158,11 @@ function getFilterTransaksi($date)
    $result = mysqli_query($conn, $query);
    return $result;
 }
+
+function getPenarikanSaldo()
+{
+   global $conn;
+   $query = "SELECT p.id, `name`, no_rekening, t_saldo, t_penarikan, t_sisa_saldo, p.created_at FROM penarikan p LEFT JOIN users u ON p.user_id = u.id LEFT JOIN nasabah n ON p.user_id = n.user_id ORDER BY p.id DESC";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
