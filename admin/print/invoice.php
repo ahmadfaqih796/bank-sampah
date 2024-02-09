@@ -71,11 +71,13 @@ if ($_GET['get'] == 'invoice') {
 
 if ($_GET['get'] == 'detail') {
    $no = 1;
-   $invoice = getTimbanganById($_GET['user_id'], $_GET['transaksi_id']);
-   $total = mysqli_num_rows($invoice);
+   $invoice = getInvoiceById($_GET['user_id'], $_GET['transaksi_id']);
+
+   $timbangan = getTimbanganById($_GET['user_id'], $_GET['transaksi_id']);
+   $total = mysqli_num_rows($timbangan);
 
    $rows = array();
-   while ($row = mysqli_fetch_assoc($invoice)) {
+   while ($row = mysqli_fetch_assoc($timbangan)) {
       $rows[] = $row;
    }
 
@@ -85,11 +87,11 @@ if ($_GET['get'] == 'detail') {
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Tabel Detail Laporan Timbangan</title>
+      <title>Tabel Detail Laporan Transaksi</title>
    </head>
    
    <body>
-      <h1 style="text-align: center;">Detail Laporan Timbangan</h1>
+      <h1 style="text-align: center;">Detail Laporan Transaksi</h1>
       <table width="50%" cellspacing="0" cellpadding="5">
          <tr>
             <td>Nama</td>
@@ -116,6 +118,16 @@ if ($_GET['get'] == 'detail') {
             <td>:</td>
             <td>' . $rows[0]['alamat'] . '</td>
          </tr>
+         <tr>
+            <td>Metode Pembayaran</td>
+            <td>:</td>
+            <td>' . $invoice['m_pembayaran'] . '</td>
+         </tr>
+         <tr>
+            <td>Status</td>
+            <td>:</td>
+            <td>Lunas</td>
+         </tr>
       </table>
       <br>
       <table width="100%" border="1" cellspacing="0" cellpadding="5">
@@ -129,7 +141,7 @@ if ($_GET['get'] == 'detail') {
             </tr>
          </thead>
          <tbody>';
-   foreach ($invoice as $item) {
+   foreach ($timbangan as $item) {
       $subtotal += $item['total'];
       $html .= '
          <tr>
@@ -144,8 +156,14 @@ if ($_GET['get'] == 'detail') {
    $html .= '
             <tr>
                <td colspan="4" align="right">Sub total</td>
-            <td>' . $subtotal . '</td>
-         </tr>
+               <td>' . $subtotal . '</td>
+            <tr>
+               <td colspan="4" align="right">Bayar</td>
+               <td>' . $invoice['bayar'] . '</td>
+            <tr>
+               <td colspan="4" align="right">Kembali</td>
+               <td>' . $invoice['kembalian'] . '</td>
+            </tr>
          </tbody>
       </table>
    </body>
