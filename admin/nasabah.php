@@ -39,6 +39,7 @@ include('includes/header.php'); ?>
                         <th>Id</th>
                         <th>Name</th>
                         <th>No Rekening</th>
+                        <th>Saldo</th>
                         <th>RT</th>
                         <th>RW</th>
                         <th>Alamat</th>
@@ -59,19 +60,21 @@ include('includes/header.php'); ?>
                         foreach ($nasabah as $item) {
                      ?>
                            <tr>
-                              <td><?= $item['id'] ?></td>
+                              <td><?= $item['user_id'] ?></td>
                               <td><?= $item['fullname'] ?></td>
                               <td><?= $item['no_rekening'] ?></td>
+                              <td><?= $item['saldo'] ?></td>
                               <td><?= $item['rt'] ?></td>
                               <td><?= $item['rw'] ?></td>
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['jml_warga'] ?></td>
                               <td><?= $item['is_active'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
                               <td><?= $item['created_at'] ?></td>
-                              <td class="print_view">
-                                 <a href="print/nasabah.php?get=detail&id=<?= $item['id'] ?>" class="btn btn-success btn-sm" target="_blank">Cetak</a>
-                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
-                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
+                              <td>
+                                 <a href="print/nasabah.php?get=detail&id=<?= $item['user_id'] ?>" class="btn btn-success mt-3" target="_blank">Cetak</a>
+                                 <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#penarikanNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Tarik Saldo</button>
+                                 <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#editNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
+                                 <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
                               </td>
                            </tr>
                      <?php
@@ -89,6 +92,7 @@ include('includes/header.php'); ?>
 <!-- Modal -->
 <?php include('modal/nasabah/create.php'); ?>
 <?php include('modal/nasabah/edit.php'); ?>
+<?php include('modal/nasabah/penarikan.php'); ?>
 <?php include('modal/nasabah/delete.php'); ?>
 
 <?php include('includes/footer.php'); ?>
