@@ -1,11 +1,11 @@
 <?php
-$pageTitle = 'Transaksi Penarikan';
+$pageTitle = 'Transaksi';
 include('includes/header.php');
 $tanggal = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-   $invoice = getFilterTransaksi($_GET['tanggal']);
+   $invoice = getFilterInvoice($_GET['tanggal']);
 } else {
-   $invoice = getTransaksi();
+   $invoice = getInvoice();
 }
 ?>
 
@@ -15,7 +15,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
          <div class="card-header">
             <div class="row">
                <div class="col-md-5">
-                  <h4>Transaksi Penarikan</h4>
+                  <h4>Transaksi</h4>
                </div>
                <div class="col-md-7">
                   <form action="" method="get">
@@ -62,10 +62,10 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['t_barang'] ?></td>
                               <td><?= $item['t_harga'] ?></td>
-                              <td><?= $item['is_paid'] ? "Berhasil" : "Belum Ditarik" ?></td>
+                              <td><?= $item['is_paid'] ? "Lunas" : "Belum Bayar" ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td>
-                                 <a class="btn btn-warning m-2" href="print/transaksi.php?get=detail&transaksi_id=<?= $item['transaksi_id'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
+                                 <a class="btn btn-warning m-2" href="print/invoice.php?get=detail&transaksi_id=<?= $item['transaksi_id'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
                               </td>
                            </tr>
                      <?php

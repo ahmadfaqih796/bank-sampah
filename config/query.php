@@ -132,3 +132,29 @@ function getFilterInvoice($date)
    $result = mysqli_query($conn, $query);
    return $result;
 }
+
+function getTransaksi()
+{
+   global $conn;
+   $query = "SELECT i.id, i.transaksi_id, i.user_id, `name`, no_rekening, saldo, alamat, t_barang, t_harga, m_penarikan, is_paid, i.created_at FROM transaksi i LEFT JOIN users u ON i.user_id = u.id LEFT JOIN nasabah n ON i.user_id = n.user_id ORDER BY i.id DESC";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
+function getTransaksiById($user_id, $transaksi_id)
+{
+   global $conn;
+   $query = "SELECT i.id, i.transaksi_id, i.user_id, `name`, no_rekening, saldo, alamat, t_barang, t_harga, m_penarikan, is_paid, i.created_at FROM transaksi i LEFT JOIN users u ON i.user_id = u.id LEFT JOIN nasabah n ON i.user_id = n.user_id WHERE i.user_id = '$user_id' AND i.transaksi_id = '$transaksi_id' ORDER BY i.id DESC";
+   $result = mysqli_query($conn, $query);
+   $data = mysqli_fetch_assoc($result);
+   mysqli_free_result($result);
+   return $data;
+}
+
+function getFilterTransaksi($date)
+{
+   global $conn;
+   $query = "SELECT i.id, i.transaksi_id, i.user_id, `name`, no_rekening, saldo, alamat, t_barang, t_harga, m_penarikan, is_paid, i.created_at FROM transaksi i LEFT JOIN users u ON i.user_id = u.id LEFT JOIN nasabah n ON i.user_id = n.user_id WHERE i.created_at LIKE '%$date%' ORDER BY i.id DESC";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}

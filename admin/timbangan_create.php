@@ -26,7 +26,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                      <?php
                      if (mysqli_num_rows($timbangan) > 0) {
                      ?>
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Bayar</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Tarik</button>
                      <?php
                      }
                      if ($q_paid == 0) {
