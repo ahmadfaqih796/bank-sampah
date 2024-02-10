@@ -9,7 +9,6 @@ function authentication($auth_role)
       $query = "SELECT * FROM users WHERE email = '$email' AND role = '$role' LIMIT 1";
       $result = mysqli_query($conn, $query);
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-      print_r($role);
 
       // if ($result) {
       //    if (mysqli_num_rows($result) == 0) {

@@ -9,30 +9,49 @@
    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
          <li class="nav-item">
-            <a class="nav-link  active" href="index.php">
+            <a class="nav-link <?= getActiveLink("index") ?>" href="index.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home text-white text-lg"></i>
+                  <i class="fa fa-home <?= getColorLink("index") ?> text-lg"></i>
                </div>
                <span class="nav-link-text ms-1">Dashboard</span>
             </a>
          </li>
          <li class="nav-item mt-3">
-            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management</h6>
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laporan</h6>
          </li>
          <li class="nav-item">
-            <a class="nav-link  " href="users.php">
+            <a class="nav-link <?= getActiveLink("timbangan") ?>" href="timbangan.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home text-dark text-lg"></i>
+                  <i class="fa fa-anchor <?= getColorLink("timbangan") ?> text-lg"></i>
                </div>
-               <span class="nav-link-text ms-1">Users</span>
+               <span class="nav-link-text ms-1">Penimbangan</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link  " href="../pages/tables.html">
+            <a class="nav-link <?= getActiveLink("transaksi") ?>" href="transaksi.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fa fa-home text-dark text-lg"></i>
+                  <i class="ni ni-money-coins <?= getColorLink("transaksi") ?> text-lg opacity-10" aria-hidden="true"></i>
                </div>
-               <span class="nav-link-text ms-1">Tes</span>
+               <span class="nav-link-text ms-1">Setoran Penjualan</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("penarikan") ?>" href="penarikan.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-money-coins <?= getColorLink("penarikan") ?> text-lg opacity-10" aria-hidden="true"></i>
+               </div>
+               <span class="nav-link-text ms-1">Penarikan Tabungan</span>
+            </a>
+         </li>
+         <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pengaturan</h6>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("akun") ?>" href="akun.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="fa fa-user <?= getColorLink("akun") ?> text-lg"></i>
+               </div>
+               <span class="nav-link-text ms-1">Akun</span>
             </a>
          </li>
       </ul>
