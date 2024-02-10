@@ -12,7 +12,6 @@ $invoice = getPenarikanSaldo();
                <div class="col-md-12">
                   <h4>Penarikan Tabungan</h4>
                </div>
-
             </div>
          </div>
          <div class="card-body">
@@ -47,7 +46,7 @@ $invoice = getPenarikanSaldo();
                               <td><?= $item['t_sisa_saldo'] ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td>
-                                 <a class="btn btn-warning m-2" href="print/penarikan.php?get=detail&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
+                                 <a class="btn btn-warning m-2" href="print/penarikan.php?get=detail&id=<?= $item['id'] ?>" target="_blank">Cetak</a>
                               </td>
                            </tr>
                      <?php
