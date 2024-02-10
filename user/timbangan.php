@@ -18,7 +18,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                <div class="col-md-5">
                   <h4>Penimbangan</h4>
                </div>
-               <div class="col-md-5">
+               <div class="col-md-7">
                   <form action="" method="get">
                      <div class="row">
                         <div class="col-md-5 mb-3">
@@ -27,14 +27,10 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         <div class="col-md-7">
                            <button class="btn btn-primary">Filter</button>
                            <a href="timbangan.php" class="btn btn-danger">Reset</a>
-                           <a class="btn btn-success float-end" href="print/timbangan.php?get=timbangan&tanggal=<?= $tanggal ?>">Cetak</a>
+                           <a class="btn btn-success float-end" href="print/timbangan.php?get=timbangan&tanggal=<?= $tanggal ?>" target="_blank">Cetak</a>
                         </div>
                      </div>
                   </form>
-               </div>
-               <div class="col-md-2">
-                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah</button>
-                  <!-- <a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a> -->
                </div>
             </div>
          </div>
