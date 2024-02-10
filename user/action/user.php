@@ -1,56 +1,21 @@
 <?php
 require('../../config/function.php');
-if (isset($_POST['saveUser'])) {
-   $name = validate($_POST['name']);
-   $phone = validate($_POST['phone']);
-   $email = validate($_POST['email']);
-   $password = validate($_POST['password']);
-   $role = validate($_POST['role']);
-   $dateNow = dateNow();
 
-   if ($name != ''  && $email != '' && $password != '') {
-      $query = "INSERT INTO users (name, phone, email, password, role, is_active, created_at) VALUES ('$name', '$phone', '$email', '$password', '$role', '1', '$dateNow')";
+if (isset($_POST['simpanAkun'])) {
+   $user_id = validate($_POST['user_id']);
+   $alamat = validate($_POST['alamat']);
+   $rt = validate($_POST['rt']);
+   $rw = validate($_POST['rw']);
+   $jml_warga = validate($_POST['jml_warga']);
+   if ($user_id != '') {
+      $query = "UPDATE nasabah SET  alamat = '$alamat', rt = '$rt', rw = '$rw', jml_warga = '$jml_warga' WHERE user_id = '$user_id'";
       $result = mysqli_query($conn, $query);
       if ($result) {
-         redirect('/admin/users.php', 'Berhasil Menyimpan Data');
+         redirect('/user/akun.php', 'Berhasil Mengubah Akun');
       } else {
-         redirect('/admin/users.php', 'Gagal Menyimpan Data');
+         redirect('/user/akun.php', 'Gagal Mengubah Akun');
       }
    } else {
-      redirect('/admin/users.php', 'Data Tidak Lengkap');
-   }
-}
-
-if (isset($_POST['editUser'])) {
-   $id = validate($_POST['id']);
-   $name = validate($_POST['name']);
-   $phone = validate($_POST['phone']);
-   $role = validate($_POST['role']);
-   $dateNow = dateNow();
-   if ($name != '') {
-      $query = "UPDATE users SET name = '$name', phone = '$phone', role = '$role', updated_at = '$dateNow' WHERE id = '$id'";
-      $result = mysqli_query($conn, $query);
-      if ($result) {
-         redirect('/admin/users.php', 'Berhasil Mengedit Data');
-      } else {
-         redirect('/admin/users.php', 'Gagal Mengedit Data');
-      }
-   } else {
-      redirect('/admin/users.php', 'Data Tidak Lengkap');
-   }
-}
-
-if (isset($_POST['deleteUser'])) {
-   $id = validate($_POST['id']);
-   if ($id != '') {
-      $query = "DELETE FROM users WHERE id = '$id'";
-      $result = mysqli_query($conn, $query);
-      if ($result) {
-         redirect('/admin/users.php', 'Berhasil Menghapus Data');
-      } else {
-         redirect('/admin/users.php', 'Gagal Menghapus Data');
-      }
-   } else {
-      redirect('/admin/users.php', 'Id ini tidak ditemukan');
+      redirect('/user/akun.php', 'Data Tidak Lengkap');
    }
 }

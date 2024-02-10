@@ -36,7 +36,7 @@ if (isset($_POST['editNasabah'])) {
    $rw = validate($_POST['rw']);
    $jml_warga = validate($_POST['jml_warga']);
    if ($id_nasabah != '' || $no_rekening != '') {
-      $query = "UPDATE nasabah SET no_rekening = '$no_rekening', alamat = '$alamat', rt = '$rt', rw = '$rw', jml_warga = '$jml_warga' WHERE id = '$id_nasabah'";
+      $query = "UPDATE nasabah SET no_rekening = '$no_rekening', alamat = '$alamat', rt = '$rt', rw = '$rw', jml_warga = '$jml_warga' WHERE user_id = '$id_nasabah'";
       $result = mysqli_query($conn, $query);
       if ($result) {
          redirect('/admin/nasabah.php', 'Berhasil Mengedit Data');
