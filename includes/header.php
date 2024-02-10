@@ -16,6 +16,24 @@
    </title>
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="assets/css/styles.css">
+
+   <style>
+      .gambar {
+         background-size: cover;
+         object-fit: cover;
+         height: 92vh;
+         background-repeat: no-repeat;
+         background-position: center;
+      }
+
+      .g1 {
+         background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .4)), url('assets/img/b1.jpg');
+      }
+
+      .g2 {
+         background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .4)), url('assets/img/b2.jpg');
+      }
+   </style>
 </head>
 
 <body>
