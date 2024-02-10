@@ -91,10 +91,26 @@ function getTransaksiTimbangan()
    return $result;
 }
 
+function getTransaksiTimbanganById($id)
+{
+   global $conn;
+   $query = "SELECT t.id, id_transaksi, t.user_id, u.`name`, n.no_rekening, n.alamat, n.rt, n.rw, COUNT(id_transaksi) AS total_barang, SUM(t.total) AS total_harga, i.is_paid, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id LEFT JOIN invoice i ON t.id_transaksi = i.transaksi_id WHERE t.user_id = '$id' GROUP BY t.id_transaksi";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
 function getTransaksiTimbanganByDate($date)
 {
    global $conn;
    $query = "SELECT t.id, id_transaksi, t.user_id, u.`name`, n.no_rekening, n.alamat, n.rt, n.rw, COUNT(id_transaksi) AS total_barang, SUM(t.total) AS total_harga, i.is_paid, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id LEFT JOIN invoice i ON t.id_transaksi = i.transaksi_id WHERE t.created_at LIKE '%$date%' GROUP BY t.id_transaksi";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
+function getTransaksiTimbanganByDateAndUserId($id, $date)
+{
+   global $conn;
+   $query = "SELECT t.id, id_transaksi, t.user_id, u.`name`, n.no_rekening, n.alamat, n.rt, n.rw, COUNT(id_transaksi) AS total_barang, SUM(t.total) AS total_harga, i.is_paid, t.created_at FROM timbangan t LEFT JOIN users u ON t.user_id = u.id LEFT JOIN product p ON t.product_id = p.id LEFT JOIN nasabah n ON t.user_id = n.user_id LEFT JOIN invoice i ON t.id_transaksi = i.transaksi_id WHERE t.user_id = '$id' AND t.created_at LIKE '%$date%' GROUP BY t.id_transaksi";
    $result = mysqli_query($conn, $query);
    return $result;
 }
