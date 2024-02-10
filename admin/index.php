@@ -10,7 +10,7 @@ $t_produk = mysqli_num_rows($produk);
 ?>
 
 <div class="row">
-
+   <?php alertMessage() ?>
    <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
       <div class="card">
          <div class="card-body p-3">

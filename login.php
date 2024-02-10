@@ -1,9 +1,13 @@
 <?php
 $pageTitle = 'Login';
 require('includes/header.php');
-
+$role = isset($_SESSION['auth']) == true ? $_SESSION['auth_role'] : '';
 if (isset($_SESSION['auth'])) {
-   redirect('/index.php', 'Anda Sudah Login');
+   if ($role == "admin") {
+      redirect('/admin/index.php', 'Anda Sudah Login');
+   } else if ($role == "user") {
+      redirect('/user/index.php', 'Anda Sudah Login');
+   }
 }
 
 ?>

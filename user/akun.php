@@ -28,6 +28,10 @@ $data = getNasabahById($session_id);
                   <input disabled type="text" name="no_rekening" id="no_rekening" value="<?= $data['no_rekening'] ?>" class="form-control">
                </div>
                <div class="mb-3">
+                  <label for="saldo">Saldo</label>
+                  <input disabled type="text" name="saldo" id="saldo" value="<?= $data['saldo'] ?>" class="form-control">
+               </div>
+               <div class="mb-3">
                   <label for="rt">RT</label>
                   <input type="text" name="rt" id="rt" value="<?= $data['rt'] ?>" class="form-control">
                </div>
