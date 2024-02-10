@@ -2,10 +2,11 @@
 $pageTitle = 'Setoran Penjualan';
 include('includes/header.php');
 $tanggal = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
+$session_id = $_SESSION['auth_user']['id'];
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-   $invoice = getFilterTransaksi($_GET['tanggal']);
+   $invoice = getFilterTransaksiById($session_id, $_GET['tanggal']);
 } else {
-   $invoice = getTransaksi();
+   $invoice = getTransaksiAllById($session_id);
 }
 ?>
 

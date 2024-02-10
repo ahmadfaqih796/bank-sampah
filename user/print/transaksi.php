@@ -26,19 +26,18 @@ if ($_GET['get'] == 'invoice') {
                <th>Alamat</th>
                <th>Total barang</th>
                <th>Total Harga</th>
-               <th>Metode Pembayaran</th>
-               <th>Bayar</th>
-               <th>Kembalian</th>
+               <th>Metode Penarikan</th>
                <th>Tanggal Dibuat</th>
             </tr>
          </thead>
          <tbody>';
    $no = 1;
    $date = $_GET['tanggal'];
+   $session_id = $_SESSION['auth_user']['id'];
    if ($date) {
-      $invoice = getFilterTransaksi($_GET['tanggal']);
+      $invoice = getFilterTransaksiById($session_id, $_GET['tanggal']);
    } else {
-      $invoice = getInvoice();
+      $invoice = getTransaksiAllById($session_id);
    }
    $total = mysqli_num_rows($invoice);
    // $html .= '<tr><td colspan="8">Total Data : ' . $total . '</td></tr>';
@@ -51,9 +50,7 @@ if ($_GET['get'] == 'invoice') {
             <td>' . $item['alamat'] . '</td>
             <td>' . $item['t_barang'] . '</td>
             <td>' . $item['t_harga'] . '</td>
-            <td>' . $item['m_pembayaran'] . '</td>
-            <td>' . $item['bayar'] . '</td>
-            <td>' . $item['kembalian'] . '</td>
+            <td>' . $item['m_penarikan'] . '</td>
             <td>' . $item['created_at'] . '</td>
          </tr>
             ';

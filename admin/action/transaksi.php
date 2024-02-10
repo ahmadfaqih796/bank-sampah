@@ -25,7 +25,7 @@ if (isset($_POST['saveInvoice'])) {
       $saldo = $nasabah['saldo'];
       $sisa_saldo = $saldo + $t_harga;
       $query_invoice = "INSERT INTO transaksi (transaksi_id, user_id, m_penarikan, t_barang, t_harga, is_paid) VALUES ('$id_transaksi', '$id_user', '$m_penarikan', '$t_barang', '$t_harga', '$is_paid')";
-      $query_nasabah = "UPDATE nasabah SET saldo = '$sisa_saldo' WHERE id = '$id_user'";
+      $query_nasabah = "UPDATE nasabah SET saldo = '$sisa_saldo' WHERE user_id = '$id_user'";
       mysqli_query($conn, $query_invoice);
       mysqli_query($conn, $query_nasabah);
       redirect($base_url_timbangan, 'Berhasil Melakukan Penarikan lewat Saldo');

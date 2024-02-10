@@ -38,7 +38,7 @@ if ($_GET['get'] == 'invoice') {
    if ($date) {
       $invoice = getFilterTransaksi($_GET['tanggal']);
    } else {
-      $invoice = getInvoice();
+      $invoice = getTransaksi();
    }
    $total = mysqli_num_rows($invoice);
    // $html .= '<tr><td colspan="8">Total Data : ' . $total . '</td></tr>';
