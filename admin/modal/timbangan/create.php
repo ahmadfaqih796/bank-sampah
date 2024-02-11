@@ -20,7 +20,7 @@
 							if (mysqli_num_rows($produk) > 0) {
 								foreach ($produk as $item) {
 							?>
-									<option value="<?= $item['id'] . "&" . $item['h_jual'] ?>"><?= $item['name'] ?></option>
+									<option value="<?= $item['id'] . "&" . $item['h_jual'] . "&" . $item['h_beli'] ?>"><?= $item['name'] ?></option>
 							<?php
 								}
 							}
