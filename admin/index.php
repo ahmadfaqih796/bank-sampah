@@ -7,6 +7,7 @@ $nasabah = getAll('nasabah');
 $t_users = mysqli_num_rows($users);
 $t_nasabah = mysqli_num_rows($nasabah);
 $t_produk = mysqli_num_rows($produk);
+$timbangan = getAll('timbangan');
 ?>
 
 <div class="row">

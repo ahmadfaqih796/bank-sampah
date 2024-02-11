@@ -6,11 +6,7 @@ if (isset($_GET['paid']) && $_GET['paid'] != '') {
 } else {
    $q_paid = 0;
 }
-if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-   $timbangan = getFilterNasabah($_GET['tanggal']);
-} else {
-   $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
-}
+$timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
 ?>
 
 <div class="row">
@@ -58,10 +54,12 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         <?php
                         $no = 1;
                         $subtotal = 0;
+                        $total_harga_beli = 0;
                         $total_barang = mysqli_num_rows($timbangan);
                         if (mysqli_num_rows($timbangan) > 0) {
                            foreach ($timbangan as $item) {
                               $subtotal += $item['total'];
+                              $total_harga_beli += $item['t_harga_beli'];
                         ?>
                               <tr>
                                  <!-- <td><?= $item['id_transaksi'] ?></td> -->

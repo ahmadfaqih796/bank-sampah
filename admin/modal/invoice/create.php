@@ -29,6 +29,7 @@
                </div>
                <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
                <input type="text" hidden name="t_harga" id="t_harga" value="<?= $subtotal ?>" class="form-control">
+               <input type="text" hidden name="t_harga_beli" id="t_harga_beli" value="<?= $total_harga_beli ?>" class="form-control">
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
