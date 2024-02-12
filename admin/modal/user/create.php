@@ -29,7 +29,7 @@
                   <label for="role">Pilih Role</label>
                   <select name="role" id="role" class="form-select" required>
                      <option value="">Pilih Role</option>
-                     <option value="admin">Admin</option>
+                     <option value="ketua">Ketua Bank Sampah</option>
                      <option value="user">User</option>
                   </select>
                </div>
