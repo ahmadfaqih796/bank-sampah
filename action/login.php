@@ -24,6 +24,8 @@ if (isset($_POST['loginBtn'])) {
             ];
             if ($row['role'] == "admin") {
                redirect('/admin/index.php', 'Login Berhasil sebagai admin');
+            } elseif ($row['role'] == "ketua") {
+               redirect('/ketua/index.php', 'Login Berhasil sebagai ketua');
             } elseif ($row['role'] == "user") {
                redirect('/user/index.php', 'Login Berhasil sebagai user');
             } else {
