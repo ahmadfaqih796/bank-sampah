@@ -17,7 +17,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 					<div class="col-md-5">
 						<h4>Penimbangan</h4>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-7">
 						<form action="" method="get">
 							<div class="row">
 								<div class="col-md-5 mb-3">
@@ -30,10 +30,6 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 								</div>
 							</div>
 						</form>
-					</div>
-					<div class="col-md-2">
-						<button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addNasabah" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah</button>
-						<!-- <a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a> -->
 					</div>
 				</div>
 			</div>
@@ -70,11 +66,6 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['created_at'] ?></td>
 										<td>
 											<a class="btn btn-warning m-2" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
-											<?php if ($item['is_paid'] == null) { ?>
-												<a href="timbangan_create.php?nasabah=<?= $item['user_id'] ?>&id_transaksi=<?= $item['id_transaksi'] ?>&paid=1" class="btn btn-primary m-2">Tarik</a>
-											<?php
-											}
-											?>
 										</td>
 									</tr>
 							<?php
@@ -88,10 +79,5 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 		</div>
 	</div>
 </div>
-
-
-<!-- Modal -->
-<?php include('modal/invoice/create.php'); ?>
-<?php include('modal/timbangan/create_transaksi_user.php'); ?>
 
 <?php include('includes/footer.php'); ?>
