@@ -22,7 +22,7 @@ $invoice = getPenarikanSaldo();
                      <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>No Rekening</th>
+                        <!-- <th>No Rekening</th> -->
                         <th>Alamat</th>
                         <th>Total Saldo</th>
                         <th>Total Penarikan</th>
@@ -39,7 +39,7 @@ $invoice = getPenarikanSaldo();
                            <tr>
                               <td><?= $item['id'] ?></td>
                               <td><?= $item['name'] ?></td>
-                              <td><?= $item['no_rekening'] ?></td>
+                              <!-- <td><?= $item['no_rekening'] ?></td> -->
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['t_saldo'] ?></td>
                               <td><?= $item['t_penarikan'] ?></td>

@@ -42,7 +42,7 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                         <tr>
                            <th>No</th>
                            <th>Nama</th>
-                           <th>No Rekening</th>
+                           <!-- <th>No Rekening</th> -->
                            <th>Alamat</th>
                            <th>Nama barang</th>
                            <th>Harga</th>
@@ -65,7 +65,7 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                                  <!-- <td><?= $item['id_transaksi'] ?></td> -->
                                  <td><?= $no++ ?></td>
                                  <td><?= $item['name'] ?></td>
-                                 <td><?= $item['no_rekening'] ?></td>
+                                 <!-- <td><?= $item['no_rekening'] ?></td> -->
                                  <td><?= $item['alamat'] ?></td>
                                  <td><?= $item['n_barang'] ?></td>
                                  <td><?= $item['h_jual'] ?></td>
