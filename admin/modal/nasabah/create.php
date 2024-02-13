@@ -25,10 +25,14 @@
                      ?>
                   </select>
                </div>
-               <div class="mb-3">
+               <!-- <div class="mb-3">
+                  <label for="no_rekening">No Rekening</label>
+               </div> -->
+               <input type="text" hidden name="no_rekening" id="no_rekening" class="form-control">
+               <!-- <div class="mb-3">
                   <label for="no_rekening">No Rekening</label>
                   <input type="text" name="no_rekening" id="no_rekening" class="form-control">
-               </div>
+               </div> -->
                <div class="mb-3">
                   <label for="rt">RT</label>
                   <input type="text" name="rt" id="rt" class="form-control">

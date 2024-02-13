@@ -10,10 +10,11 @@
             </div>
             <div class="modal-body">
                <input type="text" hidden name="id_nasabah" id="id_nasabah" class="form-control">
-               <div class="mb-3">
+               <input type="text" hidden name="no_rekening" id="editNoRekening" class="form-control">
+               <!-- <div class="mb-3">
                   <label for="editNoRekening">No Rekening</label>
                   <input type="text" name="no_rekening" id="editNoRekening" class="form-control">
-               </div>
+               </div> -->
                <div class="mb-3">
                   <label for="editRt">RT</label>
                   <input type="text" name="rt" id="editRt" class="form-control">
