@@ -11,6 +11,7 @@
             <div class="modal-body">
                <input type="text" hidden name="p_id_nasabah" id="p_id_nasabah" class="form-control">
                <input type="text" hidden name="t_saldo" id="p_t_saldo" class="form-control">
+               <input type="text" hidden name="no_rekening" id="p_editNoRekening" class="form-control">
                <!-- <div class="mb-3">
                   <label for="p_editNoRekening">No Rekening</label>
                   <input type="text" disabled name="no_rekening" id="p_editNoRekening" class="form-control">
