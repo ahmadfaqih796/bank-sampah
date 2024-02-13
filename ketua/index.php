@@ -5,15 +5,21 @@ $users = getAll('users');
 $produk = getAll('product');
 $nasabah = getAll('nasabah');
 $transaksi = getAll('transaksi');
+$p_tabungan = getAll('penarikan');
 $t_users = mysqli_num_rows($users);
 $t_nasabah = mysqli_num_rows($nasabah);
 $t_produk = mysqli_num_rows($produk);
 $t_transaksi = mysqli_num_rows($transaksi);
+$t_p_tabungan = mysqli_num_rows($p_tabungan);
 $subtotal = 0;
 $total_harga_beli = 0;
+$total_p_tabungan = 0;
 foreach ($transaksi as $item) {
    $subtotal += $item['t_harga'];
    $total_harga_beli += $item['t_harga_beli'];
+}
+foreach ($p_tabungan as $item) {
+   $total_p_tabungan += $item['t_penarikan'];
 }
 ?>
 
@@ -111,6 +117,10 @@ foreach ($transaksi as $item) {
                      <tr>
                         <th>total penarikan saldo nasabah</th>
                         <th><?= $total_harga_beli ?></th>
+                     </tr>
+                     <tr>
+                        <th>total penarikan tabungan</th>
+                        <th><?= $total_p_tabungan ?></th>
                      </tr>
                      <tr>
                         <th>keuntungan bank sampah</th>
