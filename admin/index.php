@@ -97,15 +97,11 @@ foreach ($transaksi as $item) {
                         <th><?= $subtotal ?></th>
                      </tr>
                      <tr>
-                        <th>keuntungan bank sampah</th>
+                        <th>total penarikan saldo nasabah</th>
                         <th><?= $total_harga_beli ?></th>
                      </tr>
-                     <!-- <tr>
-                        <th>Penarikan saldo nasabah</th>
-                        <th><?= $total_harga_beli ?></th>
-                     </tr> -->
                      <tr>
-                        <th>total penarikan saldo nasabah</th>
+                        <th>keuntungan bank sampah</th>
                         <th><?= $subtotal - $total_harga_beli ?></th>
                      </tr>
                   </tbody>
