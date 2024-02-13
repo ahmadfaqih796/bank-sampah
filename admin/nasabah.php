@@ -38,7 +38,7 @@ include('includes/header.php'); ?>
                      <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>No Rekening</th>
+                        <!-- <th>No Rekening</th> -->
                         <th>Saldo</th>
                         <th>RT</th>
                         <th>RW</th>
@@ -62,7 +62,7 @@ include('includes/header.php'); ?>
                            <tr>
                               <td><?= $item['user_id'] ?></td>
                               <td><?= $item['fullname'] ?></td>
-                              <td><?= $item['no_rekening'] ?></td>
+                              <!-- <td><?= $item['no_rekening'] ?></td> -->
                               <td><?= $item['saldo'] ?></td>
                               <td><?= $item['rt'] ?></td>
                               <td><?= $item['rw'] ?></td>
