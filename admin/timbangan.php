@@ -69,9 +69,9 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['is_paid'] ? "Berhasil" : "Belum Ditarik" ?></td>
 										<td><?= $item['created_at'] ?></td>
 										<td>
-											<a class="btn btn-warning m-2" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Setor</a>
+											<a class="btn btn-warning m-2" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
 											<?php if ($item['is_paid'] == null) { ?>
-												<a href="timbangan_create.php?nasabah=<?= $item['user_id'] ?>&id_transaksi=<?= $item['id_transaksi'] ?>&paid=1" class="btn btn-primary m-2">Tarik</a>
+												<a href="timbangan_create.php?nasabah=<?= $item['user_id'] ?>&id_transaksi=<?= $item['id_transaksi'] ?>&paid=1" class="btn btn-primary m-2">Setor</a>
 											<?php
 											}
 											?>
