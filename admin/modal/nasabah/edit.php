@@ -47,7 +47,7 @@
 
 <script>
    function getNasabahData(data) {
-      document.getElementById('id_nasabah').value = data['id'];
+      document.getElementById('id_nasabah').value = data['user_id'];
       document.getElementById('name_nasabah').innerHTML = data['fullname'];
       document.getElementById('editNoRekening').value = data['no_rekening'];
       document.getElementById('editNik').value = data['nik'];
