@@ -24,9 +24,9 @@ $invoice = getPenarikanSaldoAllById($session_id);
                         <th>No</th>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Total Saldo</th>
-                        <th>Total Penarikan</th>
-                        <th>Sisa Saldo</th>
+                        <th>Total Kredit</th>
+                        <th>Total Debit</th>
+                        <th>Sisa Kredit</th>
                         <th>Tanggal Dibuat</th>
                         <th>Aksi</th>
                      </tr>
