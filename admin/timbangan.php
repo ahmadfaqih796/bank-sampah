@@ -43,7 +43,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 					<table id="myTable" class="table align-items-center mb-0">
 						<thead>
 							<tr>
-								<th>Id</th>
+								<th>No</th>
 								<th>Name</th>
 								<!-- <th>No Rekening</th> -->
 								<th>Alamat</th>
@@ -56,11 +56,12 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 						</thead>
 						<tbody>
 							<?php
+							$no = 1;
 							if (mysqli_num_rows($timbangan) > 0) {
 								foreach ($timbangan as $item) {
 							?>
 									<tr>
-										<td><?= $item['id_transaksi'] ?></td>
+										<td><?= $no++ ?></td>
 										<td><?= $item['name'] ?></td>
 										<!-- <td><?= $item['no_rekening'] ?></td> -->
 										<td><?= $item['alamat'] ?></td>
