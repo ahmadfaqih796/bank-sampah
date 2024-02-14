@@ -215,3 +215,11 @@ function getPenarikanSaldoById($id)
    mysqli_free_result($result);
    return $data;
 }
+
+function getReportKeuangan()
+{
+   global $conn;
+   $query = "SELECT n.user_id, n.nik, u.name AS fullname, SUM(t.t_harga) AS saldo_bank, SUM(t.t_harga_beli) AS p_saldo, (SUM(t.t_harga) - SUM(t.t_harga_beli)) AS p_keuntungan FROM nasabah n LEFT JOIN transaksi t ON n.user_id = t.user_id LEFT JOIN users u ON n.user_id = u.id GROUP BY n.user_id";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
