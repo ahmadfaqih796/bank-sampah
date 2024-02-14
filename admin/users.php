@@ -6,9 +6,14 @@ include('includes/header.php'); ?>
    <div class="col-md-12">
       <div class="card">
          <div class="card-header">
-            <h4>User Lists
-               <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah</button>
-            </h4>
+            <div class="row">
+               <div class="col-md-9">
+                  <h4>User Lists</h4>
+               </div>
+               <div class="col-md-3">
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addUser">Tambah</button>
+               </div>
+            </div>
          </div>
          <div class="card-body">
             <?= alertMessage() ?>
