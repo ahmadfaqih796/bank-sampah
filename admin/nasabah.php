@@ -36,8 +36,9 @@ include('includes/header.php'); ?>
                <table id="myTable" class="table align-items-center mb-0">
                   <thead>
                      <tr>
-                        <th>Id</th>
-                        <th>Name</th>
+                        <!-- <th>Id</th> -->
+                        <th>NIK</th>
+                        <th>Nama</th>
                         <!-- <th>No Rekening</th> -->
                         <th>Saldo</th>
                         <th>RT</th>
@@ -60,7 +61,8 @@ include('includes/header.php'); ?>
                         foreach ($nasabah as $item) {
                      ?>
                            <tr>
-                              <td><?= $item['user_id'] ?></td>
+                              <!-- <td><?= $item['user_id'] ?></td> -->
+                              <td><?= $item['nik'] ?></td>
                               <td><?= $item['fullname'] ?></td>
                               <!-- <td><?= $item['no_rekening'] ?></td> -->
                               <td><?= $item['saldo'] ?></td>

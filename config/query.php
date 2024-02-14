@@ -53,7 +53,7 @@ function getUsersByRole($data)
 function getNasabahAll()
 {
    global $conn;
-   $query = "SELECT n.id, n.user_id, n.no_rekening, n.saldo, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user'";
+   $query = "SELECT n.id, n.nik, n.user_id, n.no_rekening, n.saldo, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user'";
    $result = mysqli_query($conn, $query);
    return $result;
 }
@@ -61,7 +61,7 @@ function getNasabahAll()
 function getNasabahById($id)
 {
    global $conn;
-   $query = "SELECT n.id, n.user_id, n.no_rekening, n.saldo, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user' AND u.id = '$id' LIMIT 1";
+   $query = "SELECT n.id, n.nik, n.user_id, n.no_rekening, n.saldo, u.name AS fullname, u.email, u.phone, u.is_active, u.role, n.alamat, n.rt, n.rw, n.jml_warga, n.created_at FROM nasabah n LEFT JOIN users u ON n.user_id = u.id WHERE u.role = 'user' AND u.id = '$id' LIMIT 1";
    $result = mysqli_query($conn, $query);
    $nasabah = mysqli_fetch_assoc($result);
    mysqli_free_result($result);
