@@ -79,7 +79,7 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                      </tbody>
                      <tfoot>
                         <tr>
-                           <th colspan="6"></th>
+                           <th colspan="5"></th>
                            <th class="text-center">Sub Total</th>
                            <th><?= $subtotal ?></th>
                         </tr>
