@@ -16,6 +16,10 @@
                   <input type="text" name="no_rekening" id="editNoRekening" class="form-control">
                </div> -->
                <div class="mb-3">
+                  <label for="editNik">NIK</label>
+                  <input type="text" name="nik" id="editNik" class="form-control">
+               </div>
+               <div class="mb-3">
                   <label for="editRt">RT</label>
                   <input type="text" name="rt" id="editRt" class="form-control">
                </div>
@@ -46,6 +50,7 @@
       document.getElementById('id_nasabah').value = data['id'];
       document.getElementById('name_nasabah').innerHTML = data['fullname'];
       document.getElementById('editNoRekening').value = data['no_rekening'];
+      document.getElementById('editNik').value = data['nik'];
       document.getElementById('editRt').value = data['rt'];
       document.getElementById('editRw').value = data['rw'];
       document.getElementById('editAlamat').value = data['alamat'];

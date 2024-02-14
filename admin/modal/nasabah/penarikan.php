@@ -35,7 +35,7 @@
 </div>
 
 <script>
-   function getNasabahData(data) {
+   function getPenarikanData(data) {
       document.getElementById('p_id_nasabah').value = data['user_id'];
       document.getElementById('p_name_nasabah').innerHTML = data['fullname'];
       document.getElementById('p_editNoRekening').value = data['no_rekening'];

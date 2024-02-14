@@ -74,7 +74,7 @@ include('includes/header.php'); ?>
                               <td><?= $item['created_at'] ?></td>
                               <td>
                                  <a href="print/nasabah.php?get=detail&id=<?= $item['user_id'] ?>" class="btn btn-success mt-3" target="_blank">Cetak</a>
-                                 <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#penarikanNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Tarik Saldo</button>
+                                 <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#penarikanNasabah" onclick="getPenarikanData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Tarik Saldo</button>
                                  <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#editNasabah" onclick="getNasabahData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Edit</button>
                                  <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#deleteNasabah" onclick="getNasabahId(<?= $item['id'] ?>)">Hapus</button>
                               </td>
