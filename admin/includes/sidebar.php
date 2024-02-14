@@ -70,6 +70,14 @@
                <span class="nav-link-text ms-1">Penarikan Tabungan</span>
             </a>
          </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("keuangan") ?>" href="keuangan.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-credit-card <?= getColorLink("keuangan") ?> text-lg opacity-10" aria-hidden="true"></i>
+               </div>
+               <span class="nav-link-text ms-1">Keuangan</span>
+            </a>
+         </li>
       </ul>
    </div>
    <div class="sidenav-footer mx-3 ">
