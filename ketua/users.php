@@ -16,7 +16,7 @@ include('includes/header.php'); ?>
                <table id="myTable" class="table align-items-center mb-0">
                   <thead>
                      <tr>
-                        <th>Id</th>
+                        <th>No</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Telepon</th>
@@ -27,12 +27,13 @@ include('includes/header.php'); ?>
                   </thead>
                   <tbody>
                      <?php
+                     $no = 1;
                      $users = getAll('users');
                      if (mysqli_num_rows($users) > 0) {
                         foreach ($users as $item) {
                      ?>
                            <tr>
-                              <td><?= $item['id'] ?></td>
+                              <td><?= $no++ ?></td>
                               <td><?= $item['name'] ?></td>
                               <td><?= $item['email'] ?></td>
                               <td><?= $item['phone'] ?></td>
