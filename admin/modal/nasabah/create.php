@@ -34,6 +34,10 @@
                   <input type="text" name="no_rekening" id="no_rekening" class="form-control">
                </div> -->
                <div class="mb-3">
+                  <label for="nik">NIK</label>
+                  <input type="text" name="nik" id="nik" class="form-control">
+               </div>
+               <div class="mb-3">
                   <label for="rt">RT</label>
                   <input type="text" name="rt" id="rt" class="form-control">
                </div>

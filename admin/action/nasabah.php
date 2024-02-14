@@ -4,6 +4,7 @@ require('../../config/function.php');
 if (isset($_POST['saveNasabah'])) {
    $user_id = validate($_POST['nasabah']);
    $no_rekening = validate($_POST['no_rekening']);
+   $nik = validate($_POST['nik']);
    $alamat = validate($_POST['alamat']);
    $rt = validate($_POST['rt']);
    $rw = validate($_POST['rw']);
@@ -16,7 +17,7 @@ if (isset($_POST['saveNasabah'])) {
       if (mysqli_num_rows($cek_user) > 0) {
          redirect('/admin/nasabah.php', 'Nasabah Sudah Terdaftar');
       } else if (mysqli_num_rows($cek_user) == 0) {
-         $query = "INSERT INTO nasabah (user_id, no_rekening, alamat, rt, rw, jml_warga) VALUES ('$user_id', '$no_rekening', '$alamat', '$rt', '$rw', '$jml_warga')";
+         $query = "INSERT INTO nasabah (user_id, nik, no_rekening, alamat, rt, rw, jml_warga) VALUES ('$user_id', '$nik', '$no_rekening', '$alamat', '$rt', '$rw', '$jml_warga')";
          $result = mysqli_query($conn, $query);
          redirect('/admin/nasabah.php', 'Berhasil Menyimpan Data');
       } else {
@@ -31,12 +32,13 @@ if (isset($_POST['saveNasabah'])) {
 if (isset($_POST['editNasabah'])) {
    $id_nasabah = validate($_POST['id_nasabah']);
    $no_rekening = validate($_POST['no_rekening']);
+   $nik = validate($_POST['nik']);
    $alamat = validate($_POST['alamat']);
    $rt = validate($_POST['rt']);
    $rw = validate($_POST['rw']);
    $jml_warga = validate($_POST['jml_warga']);
    if ($id_nasabah != '' || $no_rekening != '') {
-      $query = "UPDATE nasabah SET no_rekening = '$no_rekening', alamat = '$alamat', rt = '$rt', rw = '$rw', jml_warga = '$jml_warga' WHERE user_id = '$id_nasabah'";
+      $query = "UPDATE nasabah SET no_rekening = '$no_rekening', nik = '$nik', alamat = '$alamat', rt = '$rt', rw = '$rw', jml_warga = '$jml_warga' WHERE user_id = '$id_nasabah'";
       $result = mysqli_query($conn, $query);
       if ($result) {
          redirect('/admin/nasabah.php', 'Berhasil Mengedit Data');
