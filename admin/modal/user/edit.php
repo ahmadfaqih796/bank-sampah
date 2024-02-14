@@ -23,11 +23,18 @@
                   <input type="text" name="email" id="editEmail" class="form-control">
                </div>
                <div class="mb-3">
+                  <label for="editPassword">Password</label>
+                  <input type="password" name="password" id="editPassword" class="form-control">
+                  <span class="password-toggle">
+                     <i class="fas fa-eye"></i>
+                  </span>
+               </div>
+               <div class="mb-3">
                   <label for="role">Pilih Role</label>
                   <select name="role" id="editRole" class="form-select" required>
                      <option value="">Pilih Role</option>
-                     <option value="admin">Admin</option>
-                     <option value="user">User</option>
+                     <option value="ketua">Ketua Bank Sampah</option>
+                     <option value="user">Nasabah</option>
                   </select>
                </div>
             </div>
@@ -46,6 +53,7 @@
       document.getElementById('editId').value = data['id'];
       document.getElementById('editName').value = data['name'];
       document.getElementById('editEmail').value = data['email'];
+      document.getElementById('editPassword').value = data['password'];
       document.getElementById('editPhone').value = data['phone'];
       const roleDropdown = document.getElementById('editRole');
       const roleValue = data['role'];
@@ -56,4 +64,16 @@
          }
       }
    }
+
+   document.addEventListener("DOMContentLoaded", function() {
+      const passwordInput = document.getElementById("editPassword");
+      const passwordToggle = document.querySelector(".password-toggle");
+
+      passwordToggle.addEventListener("click", function() {
+         const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+         passwordInput.setAttribute("type", type);
+         this.querySelector("i").classList.toggle("fa-eye");
+         this.querySelector("i").classList.toggle("fa-eye-slash");
+      });
+   });
 </script>

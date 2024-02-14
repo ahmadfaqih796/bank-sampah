@@ -23,12 +23,14 @@ if (isset($_POST['saveUser'])) {
 
 if (isset($_POST['editUser'])) {
    $id = validate($_POST['id']);
+   $email = validate($_POST['email']);
+   $password = validate($_POST['password']);
    $name = validate($_POST['name']);
    $phone = validate($_POST['phone']);
    $role = validate($_POST['role']);
    $dateNow = dateNow();
    if ($name != '') {
-      $query = "UPDATE users SET name = '$name', phone = '$phone', role = '$role', updated_at = '$dateNow' WHERE id = '$id'";
+      $query = "UPDATE users SET email = '$email', password = '$password', name = '$name', phone = '$phone', role = '$role', updated_at = '$dateNow' WHERE id = '$id'";
       $result = mysqli_query($conn, $query);
       if ($result) {
          redirect('/admin/users.php', 'Berhasil Mengedit Data');
