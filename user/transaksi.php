@@ -64,7 +64,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['t_barang'] ?></td>
                               <td><?= $item['t_harga'] ?></td>
-                              <td><?= $item['is_paid'] ? "Berhasil" : "Belum Ditarik" ?></td>
+                              <td><?= $item['is_paid'] ? "Berhasil" : "Belum Disetor" ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td>
                                  <a class="btn btn-warning m-2" href="print/transaksi.php?get=detail&transaksi_id=<?= $item['transaksi_id'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
