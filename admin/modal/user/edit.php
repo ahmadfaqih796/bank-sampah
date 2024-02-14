@@ -24,13 +24,15 @@
                </div>
                <div class="mb-3">
                   <label for="editPassword">Password</label>
-                  <input type="password" name="password" id="editPassword" class="form-control">
-                  <span class="password-toggle">
-                     <i class="fas fa-eye"></i>
-                  </span>
+                  <div class="password-input">
+                     <input type="password" name="password" id="editPassword" class="form-control">
+                     <span class="password-toggle">
+                        <i class="fas fa-eye"></i>
+                     </span>
+                  </div>
                </div>
                <div class="mb-3">
-                  <label for="role">Pilih Role</label>
+                  <label for="role">Role</label>
                   <select name="role" id="editRole" class="form-select" required>
                      <option value="">Pilih Role</option>
                      <option value="ketua">Ketua Bank Sampah</option>
