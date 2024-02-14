@@ -22,7 +22,7 @@ include('includes/header.php'); ?>
                <table id="myTable" class="table align-items-center mb-0">
                   <thead>
                      <tr>
-                        <th>Id</th>
+                        <th>No</th>
                         <th>Nama</th>
                         <th>Harga Jual</th>
                         <th>Harga Beli</th>
@@ -31,12 +31,14 @@ include('includes/header.php'); ?>
                   </thead>
                   <tbody>
                      <?php
+                     $no = 1;
                      $product = getAll('product');
                      if (mysqli_num_rows($product) > 0) {
                         foreach ($product as $item) {
                      ?>
                            <tr>
-                              <td><?= $item['id'] ?></td>
+                              <td><?= $no++ ?></td>
+                              <!-- <td><?= $item['id'] ?></td> -->
                               <td><?= $item['name'] ?></td>
                               <td><?= $item['h_jual'] ?></td>
                               <td><?= $item['h_beli'] ?></td>
