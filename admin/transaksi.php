@@ -41,7 +41,6 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                      <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <!-- <th>No Rekening</th> -->
                         <th>Alamat</th>
                         <th>Total barang</th>
                         <th>Total Harga</th>
@@ -53,13 +52,13 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                   </thead>
                   <tbody>
                      <?php
+                     $no = 1;
                      if (mysqli_num_rows($invoice) > 0) {
                         foreach ($invoice as $item) {
                      ?>
                            <tr>
-                              <td><?= $item['id'] ?></td>
+                              <td><?= $no++ ?></td>
                               <td><?= $item['name'] ?></td>
-                              <!-- <td><?= $item['no_rekening'] ?></td> -->
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['t_barang'] ?></td>
                               <td><?= $item['t_harga'] ?></td>
