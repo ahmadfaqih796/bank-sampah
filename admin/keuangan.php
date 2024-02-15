@@ -21,15 +21,16 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                         <option value="year">Pertahun</option>
                      </select>
                   </div>
-                  <div class="col-md-3" id="date_input_container">
+                  <div class="col-md-2" id="date_input_container">
                      <!-- Input tanggal akan ditambahkan melalui JavaScript -->
                   </div>
                   <!-- <div class="col-md-3">
                      <input type="date" name="tanggal" id="inputDate" class="form-control" value="<?= isset($_GET['tanggal']) == true ? $_GET['tanggal'] : ''  ?>" required>
                   </div> -->
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                      <button type="submit" class="btn btn-primary">Filter</button>
-                     <a href="keuangan.php" class="btn btn-danger float-end">Reset</a>
+                     <a href="keuangan.php" class="btn btn-danger">Reset</a>
+                     <a href="print/keuangan.php?get=all&tanggal=<?= $date ?>" class="btn btn-success float-end" target="_blank">Cetak</a>
                   </div>
                </div>
             </form>
@@ -64,7 +65,6 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                            $t_keuntungan += $item['p_keuntungan'];
                      ?>
                            <tr>
-                              <!-- <td><?= $item['user_id'] ?></td> -->
                               <td><?= $item['created_at'] ?></td>
                               <td><?= $item['nik'] ?></td>
                               <td><?= $item['fullname'] ?></td>
