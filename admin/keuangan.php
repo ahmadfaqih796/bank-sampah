@@ -21,9 +21,12 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                         <option value="year">Pertahun</option>
                      </select>
                   </div>
-                  <div class="col-md-3">
-                     <input type="date" name="tanggal" id="inputDate" class="form-control" value="<?= isset($_GET['tanggal']) == true ? $_GET['tanggal'] : ''  ?>" required>
+                  <div class="col-md-3" id="date_input_container">
+                     <!-- Input tanggal akan ditambahkan melalui JavaScript -->
                   </div>
+                  <!-- <div class="col-md-3">
+                     <input type="date" name="tanggal" id="inputDate" class="form-control" value="<?= isset($_GET['tanggal']) == true ? $_GET['tanggal'] : ''  ?>" required>
+                  </div> -->
                   <div class="col-md-2">
                      <button type="submit" class="btn btn-primary">Filter</button>
                      <a href="keuangan.php" class="btn btn-danger float-end">Reset</a>
@@ -36,6 +39,7 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                <table class="table align-items-center mb-0">
                   <thead>
                      <tr>
+                        <th>Tanggal</th>
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Saldo bank sampah</th>
@@ -49,7 +53,7 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                      $t_h_beli = 0;
                      $t_keuntungan = 0;
                      if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-                        $report = getFilterNasabah($_GET['tanggal']);
+                        $report = getReportKeuanganByDate($_GET['tanggal']);
                      } else {
                         $report = getReportKeuangan();
                      }
@@ -61,6 +65,7 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                      ?>
                            <tr>
                               <!-- <td><?= $item['user_id'] ?></td> -->
+                              <td><?= $item['created_at'] ?></td>
                               <td><?= $item['nik'] ?></td>
                               <td><?= $item['fullname'] ?></td>
                               <td><?= $item['saldo_bank'] ? $item['saldo_bank'] : 0 ?></td>
@@ -72,7 +77,7 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                      }
                      ?>
                      <tr>
-                        <th colspan="2">Total</th>
+                        <th colspan="3">Total</th>
                         <th><?= $t_h_jual ?></th>
                         <th><?= $t_h_beli ?></th>
                         <th><?= $t_keuntungan ?></th>
@@ -85,3 +90,49 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
    </div>
 </div>
 <?php include('includes/footer.php'); ?>
+
+<script>
+   // Mendefinisikan fungsi untuk membuat input tanggal
+   function createDatePickerInput() {
+      var dateInput = document.createElement('input');
+      dateInput.setAttribute('class', 'form-control');
+      dateInput.setAttribute('type', 'date');
+      dateInput.setAttribute('required', 'true');
+      dateInput.setAttribute('name', 'tanggal');
+      return dateInput;
+   }
+
+   // Memanggil fungsi untuk membuat input tanggal secara default saat halaman dimuat
+   document.getElementById('date_input_container').appendChild(createDatePickerInput());
+
+   // Mendengarkan perubahan pada elemen select
+   document.getElementById('choose_date').addEventListener('change', function() {
+      // Mendapatkan nilai opsi yang dipilih
+      var selectedOption = this.value;
+
+      // Menghapus input tanggal yang ada di dalam kontainer
+      document.getElementById('date_input_container').innerHTML = '';
+
+      // Membuat elemen input sesuai dengan opsi yang dipilih
+      var dateInput;
+      if (selectedOption === 'day') {
+         dateInput = createDatePickerInput();
+      } else if (selectedOption === 'month') {
+         dateInput = document.createElement('input');
+         dateInput.setAttribute('class', 'form-control');
+         dateInput.setAttribute('type', 'month');
+         dateInput.setAttribute('required', 'true');
+         dateInput.setAttribute('name', 'tanggal');
+      } else if (selectedOption === 'year') {
+         dateInput = document.createElement('input');
+         dateInput.setAttribute('class', 'form-control');
+         dateInput.setAttribute('type', 'number');
+         dateInput.setAttribute('placeholder', 'Tahun');
+         dateInput.setAttribute('required', 'true');
+         dateInput.setAttribute('name', 'tanggal');
+      }
+
+      // Menambahkan input tanggal ke dalam kontainer
+      document.getElementById('date_input_container').appendChild(dateInput);
+   });
+</script>
