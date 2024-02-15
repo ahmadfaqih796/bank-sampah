@@ -91,7 +91,7 @@ foreach ($p_tabungan as $item) {
          </div>
       </div>
    </div>
-   <div class="col-xl-4 col-sm-6 mb-xl-4 mb-4">
+   <!-- <div class="col-xl-4 col-sm-6 mb-xl-4 mb-4">
       <div class="card">
          <div class="card-body p-3">
             <h4 class=" mb-3 text-capitalize font-weight-bold">Laporan Keuangan</h4>
@@ -120,6 +120,6 @@ foreach ($p_tabungan as $item) {
             </div>
          </div>
       </div>
-   </div>
+   </div> -->
 </div>
 <?php include('includes/footer.php'); ?>

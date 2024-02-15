@@ -91,47 +91,5 @@ foreach ($p_tabungan as $item) {
          </div>
       </div>
    </div>
-   <div class="col-xl-4 col-sm-6 mb-xl-4 mb-4">
-      <div class="card">
-         <div class="card-body p-3">
-            <h4 class=" mb-3 text-capitalize font-weight-bold">Laporan Keuangan</h4>
-            <div class="table-responsive">
-               <table class="table align-items-center mb-0 table-borderless">
-                  <tbody>
-                     <!-- <tr>
-                        <th>Saldo Kas Bank Sampah</th>
-                        <th><?= $subtotal ?></th>
-                     </tr>
-                     <tr>
-                        <th>Saldo Bank Sampah</th>
-                        <th><?= $total_harga_beli ?></th>
-                     </tr>
-                     <tr>
-                        <th>Sisa hasil Usaha</th>
-                        <th><?= $subtotal - $total_harga_beli ?></th>
-                     </tr> -->
-                     <tr>
-                        <th>Saldo bank sampah</th>
-                        <th><?= $subtotal ?></th>
-                     </tr>
-                     <tr>
-                        <th>total penarikan saldo nasabah</th>
-                        <th><?= $total_harga_beli ?></th>
-                     </tr>
-                     <tr>
-                        <th>total penarikan tabungan</th>
-                        <th><?= $total_p_tabungan ?></th>
-                     </tr>
-                     <tr>
-                        <th>keuntungan bank sampah</th>
-                        <th><?= $subtotal - $total_harga_beli ?></th>
-                     </tr>
-                  </tbody>
-
-               </table>
-            </div>
-         </div>
-      </div>
-   </div>
 </div>
 <?php include('includes/footer.php'); ?>
