@@ -3,7 +3,7 @@
       <div class="modal-content">
          <form action="action/transaksi.php" method="post">
             <div class="modal-header">
-               <h5 class="modal-title" id="addInvoiceModalLabel">Penarikan</h5>
+               <h5 class="modal-title" id="addInvoiceModalLabel">Penyetoran</h5>
                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -20,9 +20,9 @@
                   <input disabled type="text" value="<?= $subtotal ?>" class="form-control">
                </div>
                <div class="mb-3">
-                  <label for="m_penarikan">Penarikan</label>
+                  <label for="m_penarikan">Setor</label>
                   <select name="m_penarikan" id="m_penarikan" class="form-select" required>
-                     <option value="">Pilih Penarikan</option>
+                     <option value="">Pilih Penyetoran</option>
                      <option value="tunai">Tunai</option>
                      <option value="saldo">Saldo</option>
                   </select>
