@@ -20,10 +20,10 @@
                   <label for="p_saldo">Saldo</label>
                   <input type="text" disabled id="p_saldo" class="form-control">
                </div>
-               <!-- <div class="mb-3">
-                  <label for="p_narik_saldo">Setor</label>
+               <div class="mb-3">
+                  <label for="p_narik_saldo">Tarik Nominal</label>
                   <input type="text" name="t_penarikan" id="p_narik_saldo" class="form-control">
-               </div> -->
+               </div>
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>

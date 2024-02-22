@@ -68,7 +68,7 @@ if (isset($_POST['penarikanSaldoNasabah'])) {
    $t_saldo = validate($_POST['t_saldo']);
    $t_penarikan = validate($_POST['t_penarikan']);
    $s_saldo = $t_saldo - $t_penarikan;
-   if ($t_saldo > $t_penarikan) {
+   if ($t_saldo >= $t_penarikan) {
       $query = "INSERT INTO penarikan (user_id, t_saldo, t_penarikan, t_sisa_saldo) VALUES ('$user_id', '$t_saldo', '$t_penarikan', '$s_saldo')";
       $result = mysqli_query($conn, $query);
       if ($result) {
