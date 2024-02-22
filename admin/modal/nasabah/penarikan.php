@@ -3,7 +3,7 @@
       <div class="modal-content">
          <form action="action/nasabah.php" method="post">
             <div class="modal-header">
-               <h5 class="modal-title" id="penarikanNasabahModalLabel">Penyetoran Saldo <span id="p_name_nasabah"></span></h5>
+               <h5 class="modal-title" id="penarikanNasabahModalLabel">Penarikan Saldo <span id="p_name_nasabah"></span></h5>
                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -20,14 +20,14 @@
                   <label for="p_saldo">Saldo</label>
                   <input type="text" disabled id="p_saldo" class="form-control">
                </div>
-               <div class="mb-3">
+               <!-- <div class="mb-3">
                   <label for="p_narik_saldo">Setor</label>
                   <input type="text" name="t_penarikan" id="p_narik_saldo" class="form-control">
-               </div>
+               </div> -->
             </div>
             <div class="modal-footer">
                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
-               <button type="submit" class="btn bg-gradient-primary" name="penarikanSaldoNasabah">Simpan</button>
+               <button type="submit" class="btn bg-gradient-primary" name="penarikanSaldoNasabah">Tarik</button>
             </div>
          </form>
       </div>

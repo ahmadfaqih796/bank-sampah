@@ -44,7 +44,7 @@ $date = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Saldo bank sampah</th>
-                        <th>penarikan saldo</th>
+                        <th>Nilai beli sampah</th>
                         <th>Keuntungan</th>
                      </tr>
                   </thead>
