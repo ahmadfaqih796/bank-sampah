@@ -17,7 +17,7 @@
                </div>
                <div class="mb-3">
                   <label>Total Harga</label>
-                  <input disabled type="text" value="<?= $subtotal ?>" class="form-control">
+                  <input disabled type="text" value="<?= $total_harga_beli ?>" class="form-control">
                </div>
                <div class="mb-3">
                   <label for="m_penarikan">Setor</label>
@@ -28,7 +28,8 @@
                   </select>
                </div>
                <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
-               <input type="text" hidden name="t_harga" id="t_harga" value="<?= $subtotal ?>" class="form-control">
+               <input type="text" hidden name="t_harga" id="t_harga" value="<?= $total_harga_beli ?>" class="form-control">
+               <input type="text" hidden name="t_harga_jual" id="t_harga_jual" value="<?= $subtotal ?>" class="form-control">
                <input type="text" hidden name="t_harga_beli" id="t_harga_beli" value="<?= $total_harga_beli ?>" class="form-control">
             </div>
             <div class="modal-footer">

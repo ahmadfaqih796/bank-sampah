@@ -61,7 +61,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                               <td><?= $item['name'] ?></td>
                               <td><?= $item['alamat'] ?></td>
                               <td><?= $item['t_barang'] ?></td>
-                              <td><?= $item['t_harga'] ?></td>
+                              <td><?= $item['t_harga_beli'] ?></td>
                               <td><?= $item['m_penarikan'] ?></td>
                               <td><?= $item['is_paid'] == 1 ? "Berhasil" : "Belum Disetor" ?></td>
                               <td><?= $item['created_at'] ?></td>

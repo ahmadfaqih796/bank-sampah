@@ -68,9 +68,9 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                                  <!-- <td><?= $item['no_rekening'] ?></td> -->
                                  <td><?= $item['alamat'] ?></td>
                                  <td><?= $item['n_barang'] ?></td>
-                                 <td><?= $item['h_jual'] ?></td>
+                                 <td><?= $item['h_beli'] ?></td>
                                  <td><?= $item['volume'] ?></td>
-                                 <td><?= $item['total'] ?></td>
+                                 <td><?= $item['t_harga_beli'] ?></td>
                               </tr>
                         <?php
                            }
@@ -81,7 +81,7 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                         <tr>
                            <th colspan="5"></th>
                            <th class="text-center">Sub Total</th>
-                           <th><?= $subtotal ?></th>
+                           <th><?= $total_harga_beli ?></th>
                         </tr>
                      </tfoot>
                   </table>
