@@ -44,7 +44,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         <th>Alamat</th>
                         <th>Total barang</th>
                         <th>Total Harga</th>
-                        <th>Penarikan</th>
+                        <th>Penyetoran</th>
                         <th>Status</th>
                         <th>Tanggal Dibuat</th>
                         <th>Aksi</th>
@@ -63,7 +63,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                               <td><?= $item['t_barang'] ?></td>
                               <td><?= $item['t_harga'] ?></td>
                               <td><?= $item['m_penarikan'] ?></td>
-                              <td><?= $item['is_paid'] ? "Berhasil" : "Belum Disetor" ?></td>
+                              <td><?= $item['is_paid'] == 1 ? "Berhasil" : "Belum Disetor" ?></td>
                               <td><?= $item['created_at'] ?></td>
                               <td>
                                  <a class="btn btn-warning m-2" href="print/transaksi.php?get=detail&transaksi_id=<?= $item['transaksi_id'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>

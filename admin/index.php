@@ -11,11 +11,11 @@ $t_nasabah = mysqli_num_rows($nasabah);
 $t_produk = mysqli_num_rows($produk);
 $t_transaksi = mysqli_num_rows($transaksi);
 $t_p_tabungan = mysqli_num_rows($p_tabungan);
-$subtotal = 0;
+$total_harga_jual = 0;
 $total_harga_beli = 0;
 $total_p_tabungan = 0;
 foreach ($transaksi as $item) {
-   $subtotal += $item['t_harga'];
+   $total_harga_jual += $item['t_harga'];
    $total_harga_beli += $item['t_harga_beli'];
 }
 foreach ($p_tabungan as $item) {
@@ -91,7 +91,7 @@ foreach ($p_tabungan as $item) {
          </div>
       </div>
    </div>
-   <!-- <div class="col-xl-4 col-sm-6 mb-xl-4 mb-4">
+   <div class="col-xl-4 col-sm-6 mb-xl-4 mb-4">
       <div class="card">
          <div class="card-body p-3">
             <h4 class=" mb-3 text-capitalize font-weight-bold">Laporan Keuangan</h4>
@@ -99,11 +99,11 @@ foreach ($p_tabungan as $item) {
                <table class="table align-items-center mb-0 table-borderless">
                   <tbody>
                      <tr>
-                        <th>Saldo bank sampah</th>
-                        <th><?= $subtotal ?></th>
+                        <th>Saldo Kas Bank Sampah (Harga Jual)</th>
+                        <th><?= $total_harga_jual ?></th>
                      </tr>
                      <tr>
-                        <th>total penarikan saldo nasabah</th>
+                        <th>Saldo Bank Sampah (Harga Beli)</th>
                         <th><?= $total_harga_beli ?></th>
                      </tr>
                      <tr>
@@ -111,8 +111,8 @@ foreach ($p_tabungan as $item) {
                         <th><?= $total_p_tabungan ?></th>
                      </tr>
                      <tr>
-                        <th>keuntungan bank sampah</th>
-                        <th><?= $subtotal - $total_harga_beli ?></th>
+                        <th>Sisa Hasil Usaha</th>
+                        <th><?= $total_harga_jual - $total_harga_beli ?></th>
                      </tr>
                   </tbody>
 
@@ -120,6 +120,6 @@ foreach ($p_tabungan as $item) {
             </div>
          </div>
       </div>
-   </div> -->
+   </div>
 </div>
 <?php include('includes/footer.php'); ?>

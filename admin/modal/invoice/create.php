@@ -24,7 +24,7 @@
                   <select name="m_penarikan" id="m_penarikan" class="form-select" required>
                      <option value="">Pilih Penyetoran</option>
                      <option value="tunai">Tunai</option>
-                     <option value="saldo">Setor</option>
+                     <option value="saldo">Saldo</option>
                   </select>
                </div>
                <input type="text" hidden name="t_barang" id="t_barang" value="<?= $total_barang ?>" class="form-control">
