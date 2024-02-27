@@ -54,20 +54,36 @@
                <span class="nav-link-text ms-1">Penimbangan</span>
             </a>
          </li>
-         <li class="nav-item">
+         <!-- <li class="nav-item">
             <a class="nav-link <?= getActiveLink("transaksi") ?>" href="transaksi.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-money-coins <?= getColorLink("transaksi") ?> text-lg opacity-10" aria-hidden="true"></i>
                </div>
                <span class="nav-link-text ms-1">Setoran Penjualan</span>
             </a>
-         </li>
+         </li> -->
          <li class="nav-item">
             <a class="nav-link <?= getActiveLink("penarikan") ?>" href="penarikan.php">
                <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-money-coins <?= getColorLink("penarikan") ?> text-lg opacity-10" aria-hidden="true"></i>
                </div>
                <span class="nav-link-text ms-1">Penarikan Tabungan</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("volume") ?>" href="volume.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-money-coins <?= getColorLink("volume") ?> text-lg opacity-10" aria-hidden="true"></i>
+               </div>
+               <span class="nav-link-text ms-1">Volume Sampah</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link <?= getActiveLink("penjualan") ?>" href="penjualan.php">
+               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-money-coins <?= getColorLink("penjualan") ?> text-lg opacity-10" aria-hidden="true"></i>
+               </div>
+               <span class="nav-link-text ms-1">Penjualan ke Pengepul</span>
             </a>
          </li>
          <li class="nav-item">

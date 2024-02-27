@@ -92,6 +92,28 @@ function getTimbanganById($user_id, $transaksi_id)
    return $result;
 }
 
+function getVolumeReport()
+{
+   global $conn;
+   $query = 'SELECT p.*, 
+   (SELECT SUM(volume) FROM timbangan WHERE product_id = p.id) AS t_volume,
+   (SELECT SUM(total) FROM timbangan WHERE product_id = p.id) AS t_rupiah
+   FROM product p';
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
+function getVolumeReportByDate($date)
+{
+   global $conn;
+   $query = "SELECT p.*, 
+   (SELECT SUM(volume) FROM timbangan WHERE product_id = p.id && created_at LIKE '%$date%') AS t_volume,
+   (SELECT SUM(total) FROM timbangan WHERE product_id = p.id && created_at LIKE '%$date%') AS t_rupiah
+   FROM product p";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
 function getTransaksiTimbangan()
 {
    global $conn;
