@@ -1,11 +1,11 @@
 <?php
-$pageTitle = 'Setoran Penjualan';
+$pageTitle = 'Hasil Penjualan ke Pengepul';
 include('includes/header.php');
 $tanggal = isset($_GET['tanggal']) == true ? $_GET['tanggal'] : '';
 if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
-   $timbangan = getTransaksiTimbanganByDate($_GET['tanggal']);
+   $penjualan = getPenjualanByDate($_GET['tanggal']);
 } else {
-   $timbangan = getTransaksiTimbangan();
+   $penjualan = getAllPenjualan();
 }
 ?>
 
@@ -15,9 +15,9 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
          <div class="card-header">
             <div class="row">
                <div class="col-md-5">
-                  <h4>Hasli Penjualan ke Pengepul</h4>
+                  <h4>Penjualan ke Pengepul</h4>
                </div>
-               <div class="col-md-7">
+               <div class="col-md-5">
                   <form action="" method="get">
                      <div class="row">
                         <div class="col-md-5 mb-3">
@@ -25,11 +25,15 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         </div>
                         <div class="col-md-7">
                            <button class="btn btn-primary">Filter</button>
-                           <a href="transaksi.php" class="btn btn-danger">Reset</a>
-                           <a class="btn btn-success float-end" href="print/transaksi.php?get=invoice&tanggal=<?= $tanggal ?>">Cetak</a>
+                           <a href="timbangan.php" class="btn btn-danger">Reset</a>
+                           <a class="btn btn-success float-end" href="print/timbangan.php?get=timbangan&tanggal=<?= $tanggal ?>">Cetak</a>
                         </div>
                      </div>
                   </form>
+               </div>
+               <div class="col-md-2">
+                  <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addModal" onclick="getTransaksiId(<?= mysqli_num_rows($timbangan) + 1 ?>)">Tambah</button>
+                  <!-- <a class="btn btn-primary float-end" href="/admin/timbangan_create.php">Tambah Data</a> -->
                </div>
             </div>
          </div>
@@ -42,26 +46,23 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
                         <th>No</th>
                         <th>Tanggal Penjualan</th>
                         <th>Setoran</th>
-                        <th>Jenis Sampah</th>
-                        <th>Volume Sampah</th>
+                        <!-- <th>Jenis Sampah</th>
+                        <th>Volume Sampah</th> -->
                         <th>Nama Petugas</th>
                      </tr>
                   </thead>
                   <tbody>
                      <?php
                      $no = 1;
-                     if (mysqli_num_rows($timbangan) > 0) {
-                        foreach ($timbangan as $item) {
+                     if (mysqli_num_rows($penjualan) > 0) {
+                        foreach ($penjualan as $item) {
                      ?>
                            <tr>
                               <td><?= $no++ ?></td>
                               <td><?= $item['created_at'] ?></td>
-                              <!-- <td><?= $item['no_rekening'] ?></td> -->
-                              <td><?= $item['alamat'] ?></td>
-                              <td><?= $item['total_barang'] ?></td>
-                              <td><?= $item['total_harga'] ?></td>
+                              <!-- <td><?= $item['tgl_penjualan'] ?></td> -->
+                              <td><?= $item['setoran'] ?></td>
                               <td><?= $_SESSION['auth_user']['name'] ?></td>
-
                            </tr>
                      <?php
                         }
@@ -74,5 +75,8 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
       </div>
    </div>
 </div>
+
+<!-- Modal -->
+<?php include('modal/penjualan/create.php'); ?>
 
 <?php include('includes/footer.php'); ?>

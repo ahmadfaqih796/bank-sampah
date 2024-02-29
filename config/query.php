@@ -262,3 +262,19 @@ function getReportKeuanganByDate($date)
    $result = mysqli_query($conn, $query);
    return $result;
 }
+
+function getAllPenjualan()
+{
+   global $conn;
+   $query = "SELECT * FROM penjualan";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
+
+function getPenjualanByDate($date)
+{
+   global $conn;
+   $query = "SELECT * FROM penjualan WHERE created_at LIKE '%$date%'";
+   $result = mysqli_query($conn, $query);
+   return $result;
+}
