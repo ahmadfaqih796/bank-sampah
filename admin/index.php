@@ -4,6 +4,7 @@ include('includes/header.php');
 $users = getAll('users');
 $produk = getAll('product');
 $nasabah = getAll('nasabah');
+$penjualan = getAll('penjualan');
 $transaksi = getAll('transaksi');
 $transaksi_saldo = getAllByPenarikan('transaksi', 'saldo');
 $transaksi_tunai = getAllByPenarikan('transaksi', 'tunai');
@@ -16,12 +17,16 @@ $t_transaksi = mysqli_num_rows($transaksi_saldo);
 $t_p_tabungan = mysqli_num_rows($p_tabungan);
 $t_h_j = 0;
 $t_h_b = 0;
+$t_saldo_pengepul = 0;
 $t_saldo_nasabah = 0;
 $t_h_jual_saldo = 0;
 $t_h_beli_saldo = 0;
 $t_h_jual_tunai = 0;
 $t_h_beli_tunai = 0;
 $total_p_tabungan = 0;
+foreach ($penjualan as $item) {
+   $t_saldo_pengepul += $item['setoran'];
+}
 foreach ($nasabah as $item) {
    $t_saldo_nasabah += $item['saldo'];
 }
@@ -175,7 +180,8 @@ foreach ($p_tabungan as $item) {
                   <tbody>
                      <tr>
                         <th>Saldo Kas Bank Sampah (Harga Jual)</th>
-                        <th><?= $t_h_j - $total_p_tabungan ?></th>
+                        <!-- <th><?= $t_h_j - $total_p_tabungan ?></th> -->
+                        <th><?= $t_saldo_pengepul ?></th>
                      </tr>
                      <tr>
                         <th>Saldo Nasabah</th>
