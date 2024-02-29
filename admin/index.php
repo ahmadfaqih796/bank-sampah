@@ -16,11 +16,15 @@ $t_transaksi = mysqli_num_rows($transaksi_saldo);
 $t_p_tabungan = mysqli_num_rows($p_tabungan);
 $t_h_j = 0;
 $t_h_b = 0;
+$t_saldo_nasabah = 0;
 $t_h_jual_saldo = 0;
 $t_h_beli_saldo = 0;
 $t_h_jual_tunai = 0;
 $t_h_beli_tunai = 0;
 $total_p_tabungan = 0;
+foreach ($nasabah as $item) {
+   $t_saldo_nasabah += $item['saldo'];
+}
 foreach ($transaksi as $item) {
    $t_h_j += $item['t_harga'];
    $t_h_b += $item['t_harga_beli'];
@@ -174,9 +178,13 @@ foreach ($p_tabungan as $item) {
                         <th><?= $t_h_j - $total_p_tabungan ?></th>
                      </tr>
                      <tr>
+                        <th>Saldo Nasabah</th>
+                        <th><?= $t_saldo_nasabah ?></th>
+                     </tr>
+                     <!-- <tr>
                         <th>Saldo Bank Sampah (Harga Beli)</th>
                         <th><?= $t_h_b - $total_p_tabungan ?></th>
-                     </tr>
+                     </tr> -->
                      <tr>
                         <th>total penarikan tabungan</th>
                         <th><?= $total_p_tabungan ?></th>

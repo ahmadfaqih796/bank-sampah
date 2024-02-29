@@ -22,7 +22,7 @@ $timbangan = getTimbanganById($_GET['nasabah'], $_GET['id_transaksi']);
                      <?php
                      if (mysqli_num_rows($timbangan) > 0) {
                      ?>
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Setor</button>
+                        <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addInvoice">Setor</button> -->
                      <?php
                      }
                      if ($q_paid == 0) {
