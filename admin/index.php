@@ -179,25 +179,20 @@ foreach ($p_tabungan as $item) {
                <table class="table align-items-center mb-0 table-borderless">
                   <tbody>
                      <tr>
-                        <th>Saldo Kas Bank Sampah (Harga Jual)</th>
-                        <!-- <th><?= $t_h_j - $total_p_tabungan ?></th> -->
-                        <th><?= $t_saldo_pengepul ?></th>
+                        <th>Saldo Kas Bank Sampah</th>
+                        <th><?= $t_saldo_pengepul - $total_p_tabungan ?></th>
                      </tr>
                      <tr>
                         <th>Saldo Nasabah</th>
                         <th><?= $t_saldo_nasabah ?></th>
                      </tr>
-                     <!-- <tr>
-                        <th>Saldo Bank Sampah (Harga Beli)</th>
-                        <th><?= $t_h_b - $total_p_tabungan ?></th>
-                     </tr> -->
                      <tr>
                         <th>total penarikan tabungan</th>
                         <th><?= $total_p_tabungan ?></th>
                      </tr>
                      <tr>
                         <th>Sisa Hasil Usaha</th>
-                        <th><?= $t_saldo_pengepul - $t_saldo_nasabah ?></th>
+                        <th><?= ($t_saldo_pengepul - $total_p_tabungan) - $t_saldo_nasabah ?></th>
                      </tr>
                   </tbody>
 

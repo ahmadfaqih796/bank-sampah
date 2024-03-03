@@ -250,7 +250,7 @@ function getPenarikanSaldoById($id)
 function getReportKeuangan()
 {
    global $conn;
-   $query = "SELECT n.user_id, n.nik, u.name AS fullname, SUM(t.t_harga) AS saldo_bank, SUM(t.t_harga_beli) AS p_saldo, (SUM(t.t_harga) - SUM(t.t_harga_beli)) AS p_keuntungan, t.created_at FROM nasabah n LEFT JOIN transaksi t ON n.user_id = t.user_id LEFT JOIN users u ON n.user_id = u.id GROUP BY n.user_id";
+   $query = "SELECT n.user_id, n.nik, u.NAME AS fullname, SUM( t.total ) AS saldo_bank, SUM( t.t_harga_beli ) AS p_saldo, ( SUM( t.total ) - SUM( t.t_harga_beli )) AS p_keuntungan, t.created_at FROM nasabah n LEFT JOIN timbangan t ON n.user_id = t.user_id LEFT JOIN users u ON n.user_id = u.id GROUP BY n.user_id";
    $result = mysqli_query($conn, $query);
    return $result;
 }
@@ -258,7 +258,7 @@ function getReportKeuangan()
 function getReportKeuanganByDate($date)
 {
    global $conn;
-   $query = "SELECT n.user_id, n.nik, u.name AS fullname, SUM(t.t_harga) AS saldo_bank, SUM(t.t_harga_beli) AS p_saldo, (SUM(t.t_harga) - SUM(t.t_harga_beli)) AS p_keuntungan, t.created_at FROM nasabah n LEFT JOIN transaksi t ON n.user_id = t.user_id LEFT JOIN users u ON n.user_id = u.id WHERE t.created_at LIKE '%$date%' GROUP BY n.user_id";
+   $query = "SELECT n.user_id, n.nik, u.NAME AS fullname, SUM( t.total ) AS saldo_bank, SUM( t.t_harga_beli ) AS p_saldo, ( SUM( t.total ) - SUM( t.t_harga_beli )) AS p_keuntungan, t.created_at FROM nasabah n LEFT JOIN timbangan t ON n.user_id = t.user_id LEFT JOIN users u ON n.user_id = u.id WHERE t.created_at LIKE '%$date%' GROUP BY n.user_id";
    $result = mysqli_query($conn, $query);
    return $result;
 }
