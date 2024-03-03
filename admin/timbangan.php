@@ -71,6 +71,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 										<td><?= $item['created_at'] ?></td>
 										<td>
 											<a class="btn btn-warning m-2" href="print/timbangan.php?get=detail&transaksi_id=<?= $item['id_transaksi'] ?>&user_id=<?= $item['user_id'] ?>" target="_blank">Cetak</a>
+											<button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#deleteData" onclick="getData(<?= htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8') ?>)">Hapus</button>
 											<!-- <?php if ($item['is_paid'] == null) { ?>
 												<a href="timbangan_create.php?nasabah=<?= $item['user_id'] ?>&id_transaksi=<?= $item['id_transaksi'] ?>&paid=1" class="btn btn-primary m-2">Setor</a>
 											<?php
@@ -92,7 +93,7 @@ if (isset($_GET['tanggal']) && $_GET['tanggal'] != '') {
 
 
 <!-- Modal -->
-<?php include('modal/invoice/create.php'); ?>
+<?php include('modal/timbangan/delete.php'); ?>
 <?php include('modal/timbangan/create_transaksi_user.php'); ?>
 
 <?php include('includes/footer.php'); ?>

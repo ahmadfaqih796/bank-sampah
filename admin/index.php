@@ -197,7 +197,7 @@ foreach ($p_tabungan as $item) {
                      </tr>
                      <tr>
                         <th>Sisa Hasil Usaha</th>
-                        <th><?= $t_h_j - $t_h_b ?></th>
+                        <th><?= $t_saldo_pengepul - $t_saldo_nasabah ?></th>
                      </tr>
                   </tbody>
 

@@ -31,3 +31,30 @@ if (isset($_POST['saveData'])) {
       redirect($base_url, 'Data Tidak Lengkap');
    }
 }
+
+if (isset($_POST['deleteData'])) {
+   $id = validate($_POST['transaksi_id']);
+   $user_id = validate($_POST['user_id']);
+   $total_harga = validate($_POST['total_harga']);
+
+   $nasabah = getNasabahById($user_id);
+   $saldo = $nasabah['saldo'];
+
+   $sisa_saldo = $saldo - $total_harga;
+
+
+   if ($id != '') {
+      $query = "DELETE FROM timbangan WHERE id_transaksi = '$id'";
+      $result = mysqli_query($conn, $query);
+
+      $query_nasabah = "UPDATE nasabah SET saldo = '$sisa_saldo' WHERE user_id = '$user_id'";
+      mysqli_query($conn, $query_nasabah);
+      if ($result) {
+         redirect('/admin/timbangan.php', 'Berhasil Menghapus Data');
+      } else {
+         redirect('/admin/timbangan.php', 'Gagal Menghapus Data');
+      }
+   } else {
+      redirect('/admin/timbangan.php', 'Id ini tidak ditemukan');
+   }
+}
